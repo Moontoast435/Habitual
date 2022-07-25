@@ -13,6 +13,7 @@ const createHabitForm = document.getElementById("createHabitForm");
 
 createHabitForm.addEventListener("submit", (e) => {
   createHabit(e);
+  window.location.reload();
 });
 
 const habitCollection = document.getElementById("habit-collection"); // will change depending on what id Aditi has set
