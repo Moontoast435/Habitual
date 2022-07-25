@@ -8,7 +8,8 @@ async function getAllHabits() {
   }
 }
 
-async function createHabit() {
+async function createHabit(e) {
+  e.preventDefault();
   try {
     const options = {
       method: "POST",
@@ -32,8 +33,12 @@ async function deleteHabit(id) {
   try {
     const options = { method: "DELETE" };
     await fetch(`http://localhost:3000/habits/${id}`, options);
-    window.location.reload;
+    window.location.reload();
   } catch (err) {
     console.warn(err);
   }
 }
+
+/* async function sendLoginDetails() {
+
+} */
