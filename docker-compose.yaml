@@ -13,11 +13,11 @@ services:
     environment: 
       - POSTGRES_USER=the-slackerz
     volumes:
-      - "./db/migrations:/docker-entrypoint-initdb.d/:ro"
+      - "./db/pg/migrations:/docker-entrypoint-initdb.d/:ro"
 
   mongodb:
     image: mongo:latest
     environment:
       - MONGO_INITDB_ROOT_USERNAME=the-slackerz
     volumes:
-      - "./db/:/docker-entrypoint-initdb.d/:ro"
+      - "./db/mongo/seeds.js:/docker-entrypoint-initdb.d/seeds.js:ro"
