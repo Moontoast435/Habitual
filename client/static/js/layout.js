@@ -3,13 +3,16 @@
 const createMenuBtn = document.getElementById("createMenuBtn");
 const createMenu = document.getElementById("createMenu");
 
+const greetingBox = document.getElementById("greeting");
+const greetingMessage = document.createElement("h2");
+
 const createHabitBtn = document
   .getElementById("createHabitBtn")
   .addEventListener("click", () => {
     createMenu.style.display = "block";
   });
 
-const createHabitForm = document.getElementById("createHabitForm");
+const createHabitForm = document.getElementById("createPost");
 
 createHabitForm.addEventListener("submit", (e) => {
   createHabit(e);
@@ -52,6 +55,7 @@ function displayAllHabits() {
   habitFooter.appendChild(streakInfo);
 
   const checkBox = document.createElement("input");
+  checkBox.classList = "";
   checkBox.setAttribute = ("type", "radio");
   habitFooter.appendChild(checkBox);
 
@@ -62,3 +66,5 @@ function displayAllHabits() {
 
   habitCollection.appendChild(habitContainer);
 }
+
+displayAllHabits();
