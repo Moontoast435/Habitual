@@ -1,10 +1,10 @@
-const User = require('../models/user'); // will need to match file name
+const User = require('../models/user'); 
 const Habit = require('../models/habit');   //will need to match file name
 
 async function showAllHabits (req, res) {   // index route - show all habits belonging to a user - will need Auth 
     try {
         //assuming get habits method will take in username/email/id as a param?
-        const user = User.findByEmail(req.body.email); // will change this depending whats being sent in the request body
+        const user = User.findByEmail(req.body.username); // will change this depending whats being sent in the request body
         const habits = Habit.getUsersHabits(user.id) // method name will need to change; using id for now will change as necessary
         res.status(200).json(habits);
     } catch (err) {

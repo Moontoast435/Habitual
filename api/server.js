@@ -12,6 +12,7 @@ const habitRoutes = require('./routes/habits')
 
 server.use('/', authRoutes)
 server.use('/users', userRoutes)
+server.use('/habits', habitRoutes)
 
 server.get('/', (req,res) => res.send('Welcome to Habitual: The Habit Tracker'))
 

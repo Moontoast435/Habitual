@@ -1,4 +1,4 @@
-const User = require('../models/user'); // will need to match file name
+const User = require('../models/User'); // will need to match file name
 
 async function showAllUsers (req, res) {   // index route - show all users - might not need this route? 
     try {
@@ -11,7 +11,7 @@ async function showAllUsers (req, res) {   // index route - show all users - mig
 
 async function showUser (req, res) {    // show route - get user by id/email/username - will show a users details - will a user be able to see their habits here too?
     try {
-        const user = await User.findByEmail(req.body.email); //findByEmail or findByUsername - confirm w Stefan
+        const user = await User.findByUsername(req.body.username);
         res.status(200).json(user);
     } catch (err) {
         res.status(404).json({err});
@@ -21,8 +21,8 @@ async function showUser (req, res) {    // show route - get user by id/email/use
 
 async function deleteUser (req, res) {  // destroy route - deleting a user - will need to add Auth functionality also i think
     try {
-        const user = await User.findByEmail(req.body.email) //could be findByUsername - confirm w Stefan
-        const resp = user.destroy(); //confirm method name
+        const user = await User.findByUsername(req.body.username) 
+        const resp = user.destroy(); 
         res.status(204).end();
     } catch (err) {
         res.status(404).json({err});

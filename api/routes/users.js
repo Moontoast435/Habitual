@@ -2,8 +2,6 @@ const express = require('express');
 const router = express.Router();
 const usersController = require('../controllers/users');
 
-router.get('/', usersController.showAllUsers)
+router.get('/:username', usersController.showUser)
 
-router.get('/:email', usersController.showUser)
-
-router.delete('/:email', usersController.deleteUser)
+router.delete('/:username', usersController.deleteUser)
