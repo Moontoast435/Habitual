@@ -1,0 +1,35 @@
+services:
+  api:
+    container_name: debug_test_api
+    environment: 
+      - PGUSER=the-slackerz
+      - PGHOST=pgdb
+      - PGPASSWORD=slackingslackerz
+      - PGDATABASE=users
+      - PGPORT=5432
+      - DB_CONNECTION = mongodb://the-slackerz:slackingslackerz@mongodb:27017
+      - DB_NAME = habits
+      - NODE_ENV=test
+    depends_on:
+      - pgdb
+      - mongodb
+    tty: true
+  pgdb:
+    container_name: debug_test_pgdb
+    volumes:
+      - "test_db:/var/lib/postgresql/data"
+    environment: 
+      - POSTGRES_DB=users
+      - POSTGRES_PASSWORD=slackingslackerz
+  mongodb:
+    container_name: debug_test_mongodb
+    volumes:
+      - "test_db:/var/lib/mongodb/data"
+    environment:
+      - MONGO_INITDB_DATABASE=habits
+      - MONGO_INITDB_ROOT_PASSWORD=slackingslackerz
+volumes:
+  test_db:
+networks: 
+  default:
+    name: debug_test
