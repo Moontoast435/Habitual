@@ -23,7 +23,8 @@ const habitCollection = document.getElementById("habit-collection"); // will cha
 
 function displayAllHabits() {
   const habits = getAllHabits();
-  const { name, info, frequency, streak } = habits; //not sure what datapoints will be fetched from DB yet
+  const { name, tracking, frequency, streak } = habits.habits; //not sure what datapoints will be fetched from DB yet
+  const daysOfTheWeek = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
 
   const habitContainer = document.createElement("div");
   habitContainer.classList = "habit-container";
