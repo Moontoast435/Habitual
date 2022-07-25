@@ -1,4 +1,4 @@
 window.ityped.init(document.querySelector('.ityped'),{
-    strings: ["goals", "productivity","habits"],
+    strings: ["Goals...", "Productivity...","₶abits..."],
     loop: true
 })
