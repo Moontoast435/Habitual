@@ -39,6 +39,42 @@ async function deleteHabit(id) {
   }
 }
 
-/* async function sendLoginDetails() {
+async function sendLoginDetails(e) {
+  e.preventDefault();
+  try {
+    const options = {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(new FormData(e.target)),
+    };
+    const response = await fetch(`http://localhost:3000/login`, options);
+    const { err } = await response.json();
+    if (err) {
+      throw Error(err);
+    } else {
+      return;
+    }
+  } catch (err) {
+    console.warn(err);
+  }
+}
 
-} */
+async function sendNewUserDetails(e) {
+  e.preventDefault();
+  try {
+    const options = {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(new FormData(e.target)),
+    };
+    const response = await fetch(`http://localhost:3000/register`, options);
+    const { err } = await response.json();
+    if (err) {
+      throw Error(err);
+    } else {
+      return;
+    }
+  } catch (err) {
+    console.warn(err);
+  }
+}
