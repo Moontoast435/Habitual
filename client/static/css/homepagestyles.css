@@ -1,0 +1,109 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family:'Lato', sans-serif;
+    text-align: center;
+    background-color: #abc9e9;
+}
+
+
+
+p{
+    font-family: 'Montserrat-light';
+    color: gray;
+    font-size: 1.5rem;
+}
+
+/** Nav bar**/
+
+.navbar{
+    padding: 0 0 4.5rem;
+    display: inline;
+    }
+    .navbar-brand{
+    
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #fff; 
+        display: inline;
+        margin-top: 10px;
+        margin-left: 5px;
+        float: left;
+        text-decoration: none;
+    }
+
+    /* logout btn */
+    #logoutBtn  {
+        border-radius: 4px;
+        background-color: #caefd7;
+        border: none;
+        color: #000;
+        text-align: center;
+        font-size: 1.2rem;
+        padding: 5px;
+        width: 180px;
+        transition: all 0.5s;
+        cursor: pointer;
+        margin:10px;
+        float: right;
+      }
+    
+      #logoutBtn span {
+        cursor: pointer;
+        display: inline-block;
+        position: relative;
+        transition: 0.5s;
+      }
+      
+      #logoutBtn span:after {
+        content: '\00bb';
+        position: absolute;
+        opacity: 0;
+        top: 0;
+        right: -20px;
+        transition: 0.5s;
+        
+      }
+
+      #logoutBtn:hover {
+        background-color: brown;
+      }
+      
+      #logoutBtn:hover span {
+        padding-right: 25px;
+        
+      }
+      
+      #logoutBtn:hover span:after {
+        opacity: 1;
+        right: 0;
+        
+      }
+
+   
+
+
+
+
+
+    .midcontainer {
+        display: flex;
+        text-align: center;
+    }
+
+
+
+
+
+
+    /** media query**/
+@media (max-width:1028px) {
+
+    #title{
+    text-align: center;}
+    
+    }
