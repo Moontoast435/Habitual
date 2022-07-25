@@ -1,12 +1,15 @@
 const express = require('express');
 const router = express.Router();
+const { verifyToken } = require('../middleware/auth')
 const habitsController = require('../controllers/habits')
 
-router.get('/:username', habitsController.showAllHabits)
+router.get('/:username', verifyToken, habitsController.showAllHabits)
 
-router.get('/:username/:id', habitsController.showHabit)
+router.get('/:username/:id', verifyToken, habitsController.showHabit)
 
-router.post('/:username/new', habitsController.addNewHabit)
+router.post('/:username/new', verifyToken, habitsController.addNewHabit)
 
-router.delete('/:username/:id', habitsController.deleteHabit)
+router.delete('/:username/:id', verifyToken, habitsController.deleteHabit)
+
+module.exports = router;
 
