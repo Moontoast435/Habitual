@@ -25,8 +25,8 @@ async function login (req, res) {   //logging in - will need to add Auth
         if(!user) {
             throw new Error('No user with this username')
         }
-        const authed = bcrypt.compare(req.body.password, user.hashedPassword)
-        if(!!authed) {
+        const authed = await bcrypt.compare(req.body.password, user.hashedPassword)
+        if(authed) {
             const payload = { username: user.username }
             const sendToken = (err, token) => {
                 if(err) {
@@ -34,7 +34,7 @@ async function login (req, res) {   //logging in - will need to add Auth
                 }
                 res.status(200).json({
                     success: true,
-                    token: "Bearer" + token,
+                    token: "Bearer " + token,
                 });
             }
             jwt.sign(payload, process.env.SECRET, {expiresIn: 1200}, sendToken);
