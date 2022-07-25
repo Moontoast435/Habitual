@@ -22,7 +22,7 @@ p{
 
 .navbar{
     padding: 0 0 4.5rem;
-    display: inline;
+ 
     }
     .navbar-brand{
     
@@ -30,8 +30,8 @@ p{
         font-weight: bold;
         color: #fff; 
         display: inline;
-        margin-top: 10px;
-        margin-left: 5px;
+        margin-top: 20px;
+        margin-left: 8px;
         float: left;
         text-decoration: none;
     }
@@ -45,10 +45,11 @@ p{
         text-align: center;
         font-size: 1.2rem;
         padding: 5px;
-        width: 180px;
+        width: 130px;
         transition: all 0.5s;
         cursor: pointer;
-        margin:10px;
+        margin-top:20px;
+        margin-right: 8px;
         float: right;
       }
     
