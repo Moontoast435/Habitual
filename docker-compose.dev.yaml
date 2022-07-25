@@ -19,10 +19,10 @@ services:
       - PGUSER=the-slackerz
       - PGHOST=pgdb
       - PGPASSWORD=slackingslackerz
-      - PGDATABASE=users
+      - PGDATABASE=habitual
       - PGPORT=5432
       - DB_CONNECTION = mongodb://the-slackerz:slackingslackerz@mongodb:27017
-      - DB_NAME = habits
+      - DB_NAME = habitual
       - NODE_ENV=development
     depends_on:
       - pgdb
@@ -34,7 +34,7 @@ services:
     volumes:
       - "dbdata:/var/lib/postgresql/data"
     environment: 
-      - POSTGRES_DB=users
+      - POSTGRES_DB=habitual
       - POSTGRES_PASSWORD=slackingslackerz
 
   mongodb:
@@ -42,7 +42,7 @@ services:
     volumes:
       - "dbdata:/var/lib/mongodb/data"
     environment:
-      - MONGO_INITDB_DATABASE=habits
+      - MONGO_INITDB_DATABASE=habitual
       - MONGO_INITDB_ROOT_PASSWORD=slackingslackerz
 volumes:
   dbdata:
