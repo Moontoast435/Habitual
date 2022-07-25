@@ -1,160 +1,160 @@
 * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
-body{
-    font-family:'Lato', sans-serif;
-    text-align: center;
-    background-color: #abc9e9;
+body {
+  font-family: "Lato", sans-serif;
+  text-align: center;
+  background-color: #abc9e9;
 }
 
-
-
-p{
-    font-family: 'Montserrat-light';
-    color: gray;
-    font-size: 1.5rem;
+p {
+  font-family: "Montserrat-light";
+  color: gray;
+  font-size: 1.5rem;
 }
 
 /** Nav bar**/
 
-.navbar{
-    padding: 0 0 4.5rem;
- 
-    }
-    .navbar-brand{
-    
-        font-size: 1.5rem;
-        font-weight: bold;
-        color: #fff; 
-        display: inline;
-        margin-top: 20px;
-        margin-left: 8px;
-        float: left;
-        text-decoration: none;
-    }
+.navbar {
+  padding: 0 0 4.5rem;
+}
+.navbar-brand {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #fff;
+  display: inline;
+  margin-top: 20px;
+  margin-left: 8px;
+  float: left;
+  text-decoration: none;
+}
 
-    /* logout btn */
-    #logoutBtn  {
-        border-radius: 4px;
-        background-color: #caefd7;
-        border: none;
-        color: #000;
-        text-align: center;
-        font-size: 1.2rem;
-        padding: 5px;
-        width: 130px;
-        transition: all 0.5s;
-        cursor: pointer;
-        margin-top:20px;
-        margin-right: 8px;
-        float: right;
-      }
-    
-      #logoutBtn span {
-        cursor: pointer;
-        display: inline-block;
-        position: relative;
-        transition: 0.5s;
-      }
-      
-      #logoutBtn span:after {
-        content: '\00bb';
-        position: absolute;
-        opacity: 0;
-        top: 0;
-        right: -20px;
-        transition: 0.5s;
-        
-      }
+/* logout btn */
+#logoutBtn {
+  border-radius: 4px;
+  background-color: #caefd7;
+  border: none;
+  color: #000;
+  text-align: center;
+  font-size: 1.2rem;
+  padding: 5px;
+  width: 130px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin-top: 20px;
+  margin-right: 8px;
+  float: right;
+}
 
-      #logoutBtn:hover {
-        background-color: brown;
-      }
-      
-      #logoutBtn:hover span {
-        padding-right: 25px;
-        
-      }
-      
-      #logoutBtn:hover span:after {
-        opacity: 1;
-        right: 0;
-        
-      }
+#logoutBtn span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
 
- /* form */
+#logoutBtn span:after {
+  content: "\00bb";
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
 
-    #greeting {
-        
-        text-align: center;
-        margin-top: 80px;
-        padding: 25px;
-    }
+#logoutBtn:hover {
+  background-color: brown;
+}
 
-    #createMenuBtn {
-        height: 45px;
-        width:45px;
-        border-radius:30px;
-        line-height: 3;
-    }
+#logoutBtn:hover span {
+  padding-right: 25px;
+}
 
+#logoutBtn:hover span:after {
+  opacity: 1;
+  right: 0;
+}
 
-    #greetingPost {
-      text-align: justify;  
-      display: none;
-    }
+/* form */
 
-    input[type="text"], input[type="number"], input[type="date"]{
-      background: transparent;
-      border: 0;
-      border-radius:0 ;
-      border-bottom: 1px solid #fff;
-      color: gray;
-      font-family: 'Lato', sans-serif;
-      font-size: 1.2em;
-      font-weight: 500;
-      margin-bottom: 20px;
-      text-align: justify;
-    }
-    
-    input[type="number"] {
-      width: 100px;
-      margin-bottom: 20px;
-    }
+#greeting {
+  text-align: center;
+  margin-top: 80px;
+  padding: 25px;
+}
 
-    #createPost {
-      width: 100px;
-      height: 35px;
-      font-size: 1.2rem;
-      background-color:#caefd7 ;
-      border: none;
-      border-radius:4px;
-    }
+#createMenuBtn {
+  height: 45px;
+  width: 45px;
+  border-radius: 30px;
+  line-height: 3;
+}
 
+#greetingPost {
+  text-align: justify;
+  display: flex;
 
+  border: 2px solid black;
+}
 
+.habit-container {
+  display: flex;
+  padding: 0 50px;
+  gap: 0 50px;
+}
 
-    /** media query**/
-@media (max-width:1028px) {
+.habit-name {
+  font-size: 16px;
+}
 
-    #title{
-    text-align: center;}
-    }
+.habit-information {
+  font-size: 16px;
+}
 
-    #greetingPost {
-    text-align: center; 
-   }
+.habit-footer {
+  display: flex;
+  gap: 0 50px;
+}
 
+input[type="text"],
+input[type="number"],
+input[type="date"] {
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  border-bottom: 1px solid #fff;
+  color: gray;
+  font-family: "Lato", sans-serif;
+  font-size: 1.2em;
+  font-weight: 500;
+  margin-bottom: 20px;
+  text-align: justify;
+}
 
+input[type="number"] {
+  width: 100px;
+  margin-bottom: 20px;
+}
 
+#createPost {
+  width: 100px;
+  height: 35px;
+  font-size: 1.2rem;
+  background-color: #caefd7;
+  border: none;
+  border-radius: 4px;
+}
 
+/** media query**/
+@media (max-width: 1028px) {
+  #title {
+    text-align: center;
+  }
+}
 
-
-
-
-
-
-
+#greetingPost {
+  text-align: center;
+}

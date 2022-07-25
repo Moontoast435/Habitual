@@ -7,7 +7,7 @@ const greetingBox = document.getElementById("greeting");
 const greetingMessage = document.createElement("h2");
 
 const createHabitBtn = document
-  .getElementById("createHabitBtn")
+  .getElementById("createPost")
   .addEventListener("click", () => {
     createMenu.style.display = "block";
   });
@@ -19,12 +19,12 @@ createHabitForm.addEventListener("submit", (e) => {
   window.location.reload();
 });
 
-const habitCollection = document.getElementById("habit-collection"); // will change depending on what id Aditi has set
+const habitCollection = document.getElementById("greetingPost"); // will change depending on what id Aditi has set
 
 function displayAllHabits() {
-  const habits = getAllHabits();
-  const { name, tracking, frequency, streak } = habits.habits; //not sure what datapoints will be fetched from DB yet
-  const daysOfTheWeek = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+  //  const habits = getAllHabits();
+  //  const { name, tracking, frequency, streak } = habits.habits; //not sure what datapoints will be fetched from DB yet
+  //  const daysOfTheWeek = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
 
   const habitContainer = document.createElement("div");
   habitContainer.classList = "habit-container";
@@ -38,32 +38,32 @@ function displayAllHabits() {
 
   const habitName = document.createElement("p");
   habitName.classList = "habit-name";
-  habitName.textContent = name;
+  habitName.textContent = "Row my boat gently down the stream";
   habitHeader.appendChild(habitName);
 
   const habitInfo = document.createElement("p");
   const frequencyInfo = document.createElement("p");
   frequencyInfo.classList = "habit-information";
   habitInfo.classList = "habit-information";
-  habitInfo.textContent = info;
-  frequencyInfo.textContent = `This should be completed ${frequency}`;
+  habitInfo.textContent = "tracking info";
+  frequencyInfo.textContent = `This should be completed weekly`;
   habitBody.appendChild(habitInfo);
   habitBody.appendChild(frequencyInfo);
 
   const streakInfo = document.createElement("p");
   streakInfo.classList = "streak-information";
-  streakInfo.textContent = streak;
+  streakInfo.textContent = "3";
   habitFooter.appendChild(streakInfo);
 
   const checkBox = document.createElement("input");
-  checkBox.classList = "";
-  checkBox.setAttribute = ("type", "radio");
+  checkBox.classList = "habitChecker";
+  checkBox.setAttribute("type", "radio");
+
   habitFooter.appendChild(checkBox);
 
   habitContainer.appendChild(habitHeader);
   habitContainer.appendChild(habitBody);
   habitContainer.appendChild(habitFooter);
-  habitContainer.appendChild(habitHeader);
 
   habitCollection.appendChild(habitContainer);
 }
