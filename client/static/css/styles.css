@@ -1,0 +1,137 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family:'Lato', sans-serif;
+    text-align: center;
+}
+
+h1,h2,h3,h4,h5,h6{
+font-family: 'Montserrat', sans-serif;
+}
+
+p{
+    font-family: 'Montserrat-light';
+    color: gray;
+}
+
+/** Headings**/
+
+.big-heading{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3rem;
+    line-height: 1.5;
+}
+.section-heading{
+    font-size: 3rem;
+    line-height: 1.5;
+}
+
+.container-fluid{
+    padding: 17% 20%;
+    }
+
+/** Nav bar**/
+
+.navbar{
+padding: 0 0 4.5rem;
+}
+.navbar-brand{
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #fff; 
+}
+#navbar TogglerDemo01{
+    height: 0px;
+    width: 0px;
+}
+.nav-items{
+    padding: 0 20px;
+}
+
+/**Download buttons**/
+.download-button{
+  margin: 5% 3% 2% 0;  
+}
+/** Title Section**/
+
+#title{
+    background-color: #ABC9E9;
+    color: #fff;
+    text-align: left;
+    padding-bottom: 5% ;
+}
+#title .container-fluid{
+    padding: 3% 8% 7%;
+}
+/** Title Image**/
+
+.trackerGify{
+  
+    padding: 1% 10%;
+    width: 45%;
+    transform: rotate(20deg);
+    position: absolute;
+    display: none;
+}
+/** Features section**/
+#features{
+  padding: 6% 5%;  
+  position: relative;
+  
+
+}
+.feature-title{
+    font-size: 1.5rem;
+}
+.feature-box{
+    padding: 5%;
+
+}
+.feature-box{
+    color: #d0c4e0;
+    margin-bottom:1rem;
+}
+.feature-box:hover{
+    color: #f5bfd7;
+}
+
+
+/** cta section**/
+
+#cta{
+    background-color:#ABC9E9;
+    color: #fff;
+    padding: 8% 5%;
+    margin: 10px;
+    text-align: center;
+    }
+    .btn{
+    margin: 10px;
+    }
+     /** Footer section**/
+    #footer{
+        padding: 7% 5%;
+        text-align: center;
+    }
+    .social-icon{
+    margin: 20px 10px;
+    }
+
+/** media query**/
+@media (max-width:1028px) {
+
+#title{
+text-align: center;}
+
+.title-image{
+
+position: static;
+visibility: visible;
+}
+
+}
