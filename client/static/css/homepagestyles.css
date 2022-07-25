@@ -1,0 +1,153 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  text-align: center;
+  background-color: #abc9e9;
+}
+
+p {
+  font-family: "Montserrat-light";
+  color: gray;
+  font-size: 1.5rem;
+}
+
+/** Nav bar**/
+
+.navbar {
+  padding: 0 0 4.5rem;
+}
+.navbar-brand {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #fff;
+  display: inline;
+  margin-top: 20px;
+  margin-left: 8px;
+  float: left;
+  text-decoration: none;
+}
+
+/* logout btn */
+#logoutBtn {
+  border-radius: 4px;
+  background-color: #caefd7;
+  border: none;
+  color: #000;
+  text-align: center;
+  font-size: 1.2rem;
+  padding: 5px;
+  width: 130px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin-top: 20px;
+  margin-right: 8px;
+  float: right;
+}
+
+#logoutBtn span:after {
+  content: "\00bb";
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+#logoutBtn:hover {
+  background-color: brown;
+}
+
+#logoutBtn:hover span {
+  padding-right: 25px;
+}
+
+#logoutBtn:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+/* form */
+
+#greeting {
+  text-align: center;
+  margin-top: 10px;
+  padding: 25px;
+  background-color:whitesmoke;
+}
+
+.formHeading {
+  text-decoration: underline;
+}
+
+#createHabitForm {
+  font-size: 1.2rem;
+}
+
+#habitName {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+#frequency {
+  font-size: 1.2rem;
+  margin-top: 10px;
+}
+
+
+
+#createPost {
+  width: 100px;
+  height: 35px;
+  font-size: 1.2rem;
+  background-color: #caefd7;
+  border: none;
+  border-radius: 4px;
+  margin-top: 20px;
+
+}
+
+#greetingPost {
+  text-align: justify;
+  margin-block:20px;
+  
+}
+.habit-container {
+  display: flex;
+  padding: 0 50px;
+  gap: 0 50px;
+  justify-content:center;
+}
+
+.habit-name {
+  font-size: 1.2rem;
+}
+
+.habit-information {
+  font-size: 1.2rem;
+}
+
+.habit-footer {
+  display: flex;
+  gap: 0 50px;
+}
+
+
+
+
+/** media query**/
+@media (max-width: 1028px) {
+  #title {
+    text-align: center;
+  }
+}
+
+#greetingPost {
+  text-align: center;
+}
+
+
