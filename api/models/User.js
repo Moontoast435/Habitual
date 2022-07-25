@@ -1,4 +1,4 @@
-const db = require('../dbConfig/config') // change this when tims made the file
+const pgdb = require('../dbConfig/pg/init.js') // change this when tims made the file
 
 class User {
     constructor(data) {
@@ -9,7 +9,7 @@ class User {
     static get all() {
         return new Promise(async (resolve, reject) => {
             try {
-                let usersData = await db.query(`SELECT * FROM users;`);
+                let usersData = await pgdb.query(`SELECT * FROM users;`);
                 let users = usersData.rows.map(user => new User(user));
                 resolve(users);
             } catch (err) {
@@ -21,7 +21,7 @@ class User {
     static create({username, password}){
         return new Promise(async (resolve, reject) => {
             try {
-                let userData = await db.query(`INSERT INTO users (username, hashed_password) VALUES ($1, $2) RETURNING id;`, [ username, password ]);
+                let userData = await pgdb.query(`INSERT INTO users (username, hashed_password) VALUES ($1, $2) RETURNING id;`, [ username, password ]);
                 let newUser = new User(userData.rows[0]);
                 resolve(newUser);
             } catch (err) {
@@ -33,7 +33,7 @@ class User {
     static findByUsername(username) {
         return new Promise (async (resolve, reject) => {
             try {
-                let userData = await db.query(`SELECT * FROM users WHERE username = $1;`, [ username ]);
+                let userData = await pgdb.query(`SELECT * FROM users WHERE username = $1;`, [ username ]);
                 let user = new User(userData.rows[0]);
                 resolve(user);
             } catch (err) {
@@ -45,7 +45,7 @@ class User {
     destroy(){
         return new Promise(async (resolve, reject) => {
             try {
-                const destruction = await db.query(`DELETE FROM users WHERE username = $1 RETURNING username;`, [ this.username ]);
+                const destruction = await pgdb.query(`DELETE FROM users WHERE username = $1 RETURNING username;`, [ this.username ]);
                 const username = destruction.rows[0].username
                 resolve(`This user has now been deleted: ${username}. Bye bye!👋`);
             } catch (err) {
