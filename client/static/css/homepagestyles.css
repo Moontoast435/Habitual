@@ -21,7 +21,7 @@ p{
 /** Nav bar**/
 
 .navbar{
-    padding: 0 0 4.5rem;
+    padding: 0 0 ;
  
     }
     .navbar-brand{
@@ -30,8 +30,7 @@ p{
         font-weight: bold;
         color: #fff; 
         display: inline;
-        margin-top: 20px;
-        margin-left: 8px;
+       
         float: left;
         text-decoration: none;
     }
@@ -48,7 +47,7 @@ p{
         width: 130px;
         transition: all 0.5s;
         cursor: pointer;
-        margin-top:20px;
+        margin-top:5px;
         margin-right: 8px;
         float: right;
       }
@@ -92,37 +91,31 @@ p{
         text-align: center;
         margin-top: 80px;
         padding: 25px;
-    }
-
-    #createMenuBtn {
-        height: 45px;
-        width:45px;
-        border-radius:30px;
-        line-height: 3;
-    }
-
-
-    #greetingPost {
-      text-align: justify;  
-      display: none;
-    }
-
-    input[type="text"], input[type="number"], input[type="date"]{
-      background: transparent;
-      border: 0;
-      border-radius:0 ;
-      border-bottom: 1px solid #fff;
-      color: gray;
-      font-family: 'Lato', sans-serif;
-      font-size: 1.2em;
-      font-weight: 500;
-      margin-bottom: 20px;
-      text-align: justify;
-    }
+        background-color:whitesmoke;
     
-    input[type="number"] {
-      width: 100px;
-      margin-bottom: 20px;
+       
+     
+    }
+
+    .formHeading {
+      text-decoration: underline;
+    }
+
+    #createHabitForm {
+      font-size: 1.5rem;
+      text-decoration: ;
+    }
+
+    #habitName {
+      font-size: 1.2rem;
+      justify-content: space-around;
+      margin-block: 10px;
+    }
+
+    #frequency {
+      font-size: 1.2rem;
+      justify-content: space-around;
+      margin-block: 10px;
     }
 
     #createPost {
@@ -132,7 +125,32 @@ p{
       background-color:#caefd7 ;
       border: none;
       border-radius:4px;
+      margin-top: 20px;
     }
+
+    #greetingPost {
+      text-align: justify;  
+      display: flex;
+      margin-top: 20px;
+      text-decoration: underline;
+      
+    }
+
+    .habit-container {
+  display: flex;
+  padding: 0 50px;
+  gap: 0 50px;
+}
+.habit-name {
+  font-size: 16px;
+}
+.habit-information {
+  font-size: 16px;
+}
+.habit-footer {
+  display: flex;
+  gap: 0 50px;
+}
 
 
 
