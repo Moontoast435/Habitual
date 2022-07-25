@@ -1,4 +1,4 @@
 INSERT INTO users (username, hashed_password) 
 VALUES
-    ('admin', 'tu9ibtoi4tbh2hhuet' ),
-    ('test', 'h4hoeuba3r3tbaeu' );
+    ('test1', 'tu9ibtoi4tbh2hhuet' ),
+    ('test2', 'h4hoeuba3r3tbaeu' );
