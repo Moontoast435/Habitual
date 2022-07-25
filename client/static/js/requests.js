@@ -10,11 +10,13 @@ async function getAllHabits() {
 
 async function createHabit(e) {
   e.preventDefault();
+  let habitName = document.getElementById("habitName").value;
+  let dailyOrWeekly = document.getElementById("frequency").value;
   try {
     const options = {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(Object.fromEntries(new FormData(e.target))),
+      body: JSON.stringify({ habit: habitName, frequency: dailyOrWeekly }),
     };
 
     const response = await fetch("http://localhost:3000/habits", options);
