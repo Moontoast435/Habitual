@@ -1,6 +1,8 @@
+let API_URL = `http://localhost:3000`;
+
 async function getAllHabits() {
   try {
-    const response = await fetch(`http://localhost:3000/habits`);
+    const response = await fetch(`${API_URL}/habits`);
     const data = await response.json();
     return data;
   } catch (err) {
@@ -19,7 +21,7 @@ async function createHabit(e) {
       body: JSON.stringify({ habit: habitName, frequency: dailyOrWeekly }),
     };
 
-    const response = await fetch("http://localhost:3000/habits", options);
+    const response = await fetch(`${API_URL}/habits`, options);
     const { err } = await response.json();
     if (err) {
       throw Error(err);
@@ -34,7 +36,7 @@ async function createHabit(e) {
 async function deleteHabit(id) {
   try {
     const options = { method: "DELETE" };
-    await fetch(`http://localhost:3000/habits/${id}`, options);
+    await fetch(`${API_URL}/habits/${id}`, options);
     window.location.reload();
   } catch (err) {
     console.warn(err);
@@ -49,7 +51,7 @@ async function sendLoginDetails(e) {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(new FormData(e.target)),
     };
-    const response = await fetch(`http://localhost:3000/login`, options);
+    const response = await fetch(`${API_URL}/login`, options);
     const { err } = await response.json();
     if (err) {
       throw Error(err);
@@ -69,7 +71,7 @@ async function sendNewUserDetails(e) {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(new FormData(e.target)),
     };
-    const response = await fetch(`http://localhost:3000/register`, options);
+    const response = await fetch(`${API_URL}/register`, options);
     const { err } = await response.json();
     if (err) {
       throw Error(err);
@@ -80,3 +82,5 @@ async function sendNewUserDetails(e) {
     console.warn(err);
   }
 }
+
+// async function getTrackingInfo

@@ -1,23 +1,22 @@
 // Placeholder id's have been used, will be changed to reflect the actual HTML element ID's
-
 const createMenuBtn = document.getElementById("createMenuBtn");
 const createMenu = document.getElementById("createMenu");
 
 const greetingBox = document.getElementById("greeting");
 const greetingMessage = document.createElement("h2");
 
-const createHabitBtn = document
+/*const createHabitBtn = document
   .getElementById("createPost")
   .addEventListener("click", () => {
     createMenu.style.display = "block";
-  });
+  }); */
 
 const createHabitForm = document.getElementById("createPost");
 
-createHabitForm.addEventListener("submit", (e) => {
+/*createHabitForm.addEventListener("submit", (e) => {
   createHabit(e);
   window.location.reload();
-});
+}); */
 
 const habitCollection = document.getElementById("greetingPost"); // will change depending on what id Aditi has set
 
@@ -53,13 +52,44 @@ function displayAllHabits() {
   streakInfo.classList = "streak-information";
   streakInfo.textContent = "3";
   habitFooter.appendChild(streakInfo);
+  // if (dailyOrWeekly === "daily") {
+  // id of the habit will be used in place of 1 when the data is fetched successfully.
+  const mon = document.createElement("button");
+  mon.classList = "habit-complete-button";
+  mon.id = `1`;
 
-  const checkBox = document.createElement("input");
-  checkBox.classList = "habitChecker";
-  checkBox.setAttribute("type", "radio");
+  const tue = document.createElement("button");
+  tue.classList = "habit-complete-button";
+  tue.id = `1`;
 
-  habitFooter.appendChild(checkBox);
+  const wed = document.createElement("button");
+  wed.classList = "habit-complete-button";
+  wed.id = `1`;
 
+  const thu = document.createElement("button");
+  thu.classList = "habit-complete-button";
+  thu.id = `1`;
+
+  const fri = document.createElement("button");
+  fri.classList = "habit-complete-button";
+  fri.id = `1`;
+
+  const sat = document.createElement("button");
+  sat.classList = "habit-complete-button";
+  sat.id = `1`;
+
+  const sun = document.createElement("button");
+  sun.classList = "habit-complete-button";
+  sun.id = `1`;
+
+  habitFooter.appendChild(mon);
+  habitFooter.appendChild(tue);
+  habitFooter.appendChild(wed);
+  habitFooter.appendChild(thu);
+  habitFooter.appendChild(fri);
+  habitFooter.appendChild(sat);
+  habitFooter.appendChild(sun);
+  // }
   habitContainer.appendChild(habitHeader);
   habitContainer.appendChild(habitBody);
   habitContainer.appendChild(habitFooter);

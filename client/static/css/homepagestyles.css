@@ -5,15 +5,14 @@
 }
 
 body {
-  font-family: 'Bebas Neue', cursive;
+  font-family: "Bebas Neue", cursive;
   text-align: center;
   background-color: #abc9e9;
-  
 }
 
 p {
-  font-family: 'Bebas Neue', cursive;
-  color:#fff;
+  font-family: "Bebas Neue", cursive;
+  color: #fff;
   font-size: 1.5rem;
 }
 
@@ -23,7 +22,7 @@ p {
   padding: 0 0 4.5rem;
 }
 .navbar-brand {
-  font-size:3rem;
+  font-size: 3rem;
   letter-spacing: 1.5;
   color: #fff;
   display: inline;
@@ -197,13 +196,11 @@ input[type=submit]:hover {
   text-align: center;
   color: white;
   font-weight: 100;
-
 }
 
 #cardImg {
   opacity: 0.8;
   border-radius: 10px;
- 
 }
 
 /* Centered text */
@@ -214,16 +211,13 @@ input[type=submit]:hover {
   margin-bottom: 150px;
   transform: translate(-50%, -250%);
   letter-spacing: 2.5;
-  
 }
 /*backend*/
 #greetingPost {
   display: flex;
   flex-direction: column;
-  
 }
 .habit-container {
-  
   padding: 0 50px;
   gap: 0 50px;
   justify-content: center;
@@ -238,9 +232,8 @@ input[type=submit]:hover {
 }
 
 .habit-footer {
-  
   gap: 0 50px;
-} 
+}
 
 /** media query**/
 @media (max-width: 1028px) {
@@ -248,36 +241,32 @@ input[type=submit]:hover {
     text-align: center;
   }
 
+  #greetingPost {
+    text-align: center;
+  }
+  /* form opt-3*/
+  /* Container holding the image and the text */
+  .container {
+    position: relative;
+    text-align: center;
+    color: white;
+    font-weight: 100;
+  }
 
-#greetingPost {
-  text-align: center;
-}
-/* form opt-3*/
-/* Container holding the image and the text */
-.container {
-  position: relative;
-  text-align: center;
-  color: white;
-  font-weight: 100;
+  #cardImg {
+    opacity: 0.8;
+    border-radius: 10px;
+    width: 50%;
+    height: 50%;
+  }
 
-}
-
-#cardImg {
-  opacity: 0.8;
-  border-radius: 10px;
-  width: 50%;
-  height: 50%;
- 
-}
-
-/* Centered text */
-.centered {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  margin-bottom: 150px;
-  transform: translate(-50%, -50%);
-  letter-spacing: 2.5;
-  
-}
+  /* Centered text */
+  .centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-bottom: 150px;
+    transform: translate(-50%, -50%);
+    letter-spacing: 2.5;
+  }
 }
