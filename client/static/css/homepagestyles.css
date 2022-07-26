@@ -50,6 +50,13 @@ p {
   float: right;
 }
 
+#logoutBtn span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
 #logoutBtn span:after {
   content: "\00bb";
   position: absolute;
@@ -77,11 +84,16 @@ p {
 #greeting {
   text-align: center;
   margin-top: 10px;
+<<<<<<< HEAD
   padding-top: 5px;
   background-color:whitesmoke;
   border-radius: 30px;
   
   
+=======
+  padding: 25px;
+  background-color: whitesmoke;
+>>>>>>> 20a0c98ff52dcdfd1e2f21c20ffc27e68c2d559e
 }
 
 .formHeading {
@@ -89,8 +101,10 @@ p {
 
 }
 
-#createHabitForm {
-  font-size: 1.2rem;
+#greetingPost {
+  text-align: justify;
+  display: flex;
+  border: 2px solid black;
 }
 
 #habitName {
@@ -103,8 +117,6 @@ p {
   margin-top: 10px;
 }
 
-
-
 #createPost {
   width: 100px;
   height: 35px;
@@ -113,19 +125,23 @@ p {
   border: none;
   border-radius: 4px;
   margin-top: 20px;
-
 }
 
 #greetingPost {
+<<<<<<< HEAD
   display: flex;
   flex-direction: column;
   
+=======
+  text-align: justify;
+  margin-block: 20px;
+>>>>>>> 20a0c98ff52dcdfd1e2f21c20ffc27e68c2d559e
 }
 .habit-container {
   
   padding: 0 50px;
   gap: 0 50px;
-  justify-content:center;
+  justify-content: center;
 }
 
 .habit-name {
@@ -141,9 +157,6 @@ p {
   gap: 0 50px;
 }
 
-
-
-
 /** media query**/
 @media (max-width: 1028px) {
   #title {
@@ -154,5 +167,3 @@ p {
 #greetingPost {
   text-align: center;
 }
-
-
