@@ -2,7 +2,7 @@ let API_URL = `http://localhost:3000`;
 
 async function getAllHabits() {
   try {
-    const response = await fetch(`${API_URL}/habits`);
+    const response = await fetch(`${API_URL}/username`);
     const data = await response.json();
     return data;
   } catch (err) {
@@ -21,7 +21,7 @@ async function createHabit(e) {
       body: JSON.stringify({ habit: habitName, frequency: dailyOrWeekly }),
     };
 
-    const response = await fetch(`${API_URL}/habits`, options);
+    const response = await fetch(`${API_URL}/username/new`, options);
     const { err } = await response.json();
     if (err) {
       throw Error(err);
@@ -36,7 +36,7 @@ async function createHabit(e) {
 async function deleteHabit(id) {
   try {
     const options = { method: "DELETE" };
-    await fetch(`${API_URL}/habits/${id}`, options);
+    await fetch(`${API_URL}/username/${id}`, options);
     window.location.reload();
   } catch (err) {
     console.warn(err);
@@ -83,4 +83,12 @@ async function sendNewUserDetails(e) {
   }
 }
 
-// async function getTrackingInfo
+async function getTrackingInfo(id) {
+  try {
+    const response = await fetch(`${API_URL}/username/${id}`);
+    const data = await response.json();
+    return data;
+  } catch (err) {
+    console.warn(err);
+  }
+}

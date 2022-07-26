@@ -98,3 +98,18 @@ function displayAllHabits() {
 }
 
 displayAllHabits();
+
+// Javascript for the tracking information buttons
+
+const trackerButtons = document.getElementsByClassName("habit-complete-button");
+
+let currentDate = new Date();
+
+Array.from(trackerButtons).forEach((b) => {
+  b.addEventListener("click", () => {
+    data = getTrackingInfo(b.id);
+    let currentDate = new Date();
+    if (currentDate != data.trackingSchema.dates.date) {
+    }
+  });
+});
