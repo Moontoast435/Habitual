@@ -24,7 +24,6 @@ const habitCollection = document.getElementById("greetingPost"); // will change 
 function displayAllHabits() {
   //  const habits = getAllHabits();
   //  const { name, tracking, frequency, streak } = habits.habits; //not sure what datapoints will be fetched from DB yet
-  //  const daysOfTheWeek = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
 
   const habitContainer = document.createElement("div");
   habitContainer.classList = "habit-container";
