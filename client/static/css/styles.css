@@ -5,24 +5,24 @@
 }
 
 body{
-    font-family:'Lato', sans-serif;
+    font-family: 'Bebas Neue', cursive;
     text-align: center;
 }
 
 h1,h2,h3,h4,h5,h6{
-font-family: 'Montserrat', sans-serif;
+  font-family: 'Bebas Neue', cursive;
 }
 
 p{
-    font-family: 'Montserrat-light';
-    color: gray;
+    font-family: 'Bebas Neue', cursive;
+    color:#fff;
     font-size: 1.5rem;
 }
 
 /** Headings**/
 
 .big-heading{
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Bebas Neue', cursive;
     font-size: 3rem;
     line-height: 1.5;
 }
@@ -41,21 +41,23 @@ p{
 padding: 0 0 4.5rem;
 }
 .navbar-brand{
-    font-family: 'Ubuntu', sans-serif;
-    font-size: 1.5rem;
-    font-weight: bold;
+    font-family: 'Bebas Neue', cursive;
+    font-size:3.5rem;
+    letter-spacing: 1.5;
     color: #fff; 
+    
 }
 
 
 /**Download buttons**/
 #btn1  {
     border-radius: 4px;
-    background-color: #caefd7;
+    background-color:#000;
     border: none;
-    color: #000;
+    color: #fff;
     text-align: center;
-    font-size: 1.2rem;
+    font-weight: 400;
+    font-size: 1.5rem;
     padding: 10px;
     width: 200px;
     transition: all 0.5s;
@@ -149,9 +151,9 @@ padding: 0 0 4.5rem;
     /* btn2 */
     #btn2  {
         border-radius: 4px;
-        background-color: #caefd7;
+        background-color: #000;
         border: none;
-        color: #000;
+        color: #fff;
         text-align: center;
         font-size: 1.2rem;
         padding: 10px;
@@ -196,6 +198,10 @@ padding: 0 0 4.5rem;
     }
     .social-icon{
     margin: 20px 10px;
+    }
+
+    #footerP {
+      color: #000;
     }
 
 /** media query**/
