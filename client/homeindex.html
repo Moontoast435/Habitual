@@ -12,6 +12,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
 <!--font Awesome-->
 <script src="https://kit.fontawesome.com/4733042abc.js" crossorigin="anonymous"></script>
+
     <script defer src='static/js/requests.js'></script>
     <script defer src='static/js/layout.js'></script>
 
@@ -32,8 +33,8 @@
 
     <!--middle container-->
     
-        <!-- <div id="greeting" class="col-lg-6">
-           <h1 >Hi! (username)</username></h1><br>
+        <!-- <!-- <div id="greeting" class="col-lg-6">
+           <h1 >Hi! (username)</h1><br>
             <h2 class="formHeading">Habit Tracker</h2><br>
            <form id="createHabitForm">
         <label for="habits">Habit Title : </label>
@@ -53,70 +54,59 @@
            </form> 
         </div>  
         </div> -->
-
-
-<!--form opt 2-->
-<!-- 
-<div id="greeting">
-	<h2>Hi!(Username) </h2>
-    <h3 class="formHeading">Habit Tracker </h3>
-  <form id="createHabitForm">
-    <div class="row">
-      <div class="col-25">
-        <label for="country">Habit Title</label>
-      </div>
-      <div class="col-75">
-        <select id="habitName" name="habits">
-          <option value="australia">Reading</option>
-          <option value="canada">Cycling</option>
-          <option value="usa">Walking</option>
-          <option value="usa">Yoga</option>
-          <option value="usa">exercise</option>
-          <option value="usa">8hours Sleep</option>
-          <option value="usa">Water</option>
-          <option value="usa">Custom Create</option>
-        </select>
-      </div>
-    </div>
-      <div class="row">
-      <div class="col-25">
-        <label for="frequency">Repetition</label>
-      </div>
-      <div class="col-75">
-        <select id="frequency" name="Repetitions">
-          <option value="australia">Daily</option>
-          <option value="canada">Weekly</option>
-        </select>
-      </div>
-    </div>
-    <div class="row">
-    <div class="col-75">
-      <input id="createPost" type="submit" value="ADD">
-      </div>
-    </div>
-  </form>
-</div> -->
-
-<!--form opt 3-->
-<div class="container">
-  <img id="cardImg" src="./images/dailytracker_gif.2.jpg" alt="Snow" >
- <div class="centered">
-  <h1>Hi! (Username)</h1>
-  <h3>Let's make a habits togather</h3>
-
- </div>
-</div>
-
-
-
-
-
- <!--backend-->        
+ <!--backend-       
         <div id="greetingPost" class="col-lg-6">
             <h2 class="formHeading">Browse activity</h2><br> 
-            
-       
+        </div> -->
+
+
+        <!--opt 2-->
+
+        <div class="container">
+          <div class="left">
+            <div class="header">
+              <h1>Hi! (username)</h1>
+              <h4>Let's make a habits togather!</h4>
+            </div>
+            <div id="createHabitForm" class="form" >
+           <label id="habitTitle" class="animation a1" for="habits">Habit Title</label>
+            <select class="animation a1" name="habits" id="habitName">
+                <option value="Reading">Reading</option>
+                <option value="Cycling">Cycling</option>
+                <option value="Walk">Walk</option>
+                <option value="Yoga">Yoga</option>
+                <option value="Custom Title">Custom Title</option>
+            </select>
+            <label id="habitRepetition" class="animation a1"for="habits">Repetitions</label>
+                <select class="animation a1" name="habits" id="frequency">
+                  <option value="Daily">Daily</option>
+                  <option value="Weekly">Weekly</option>
+                </select>
+                <button class="animation a1" type="submit" id="createPost">Start Now</button>
+            </div>
+          </div>
+          <div class="right">
+            <img  id="rightImg" src="./images/trackerImg.jpg5.png" alt="" width="100%" height="auto">
+          </div>
         </div>
+        
+ <!--backend-->    
+        <div id="greetingPost" class="col-lg-6">
+            <h2 class="formHeading">Browse activity</h2><br> 
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 </body>
 </html>
