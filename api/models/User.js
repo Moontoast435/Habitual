@@ -21,7 +21,7 @@ class User {
     static create({username, password}){
         return new Promise(async (resolve, reject) => {
             try {
-                let userData = await pgdb.query(`INSERT INTO users (username, hashed_password) VALUES ($1, $2) RETURNING id;`, [ username, password ]);
+                let userData = await pgdb.query(`INSERT INTO users (username, hashed_password) VALUES ($1, $2) RETURNING username;`, [ username, password ]);
                 let newUser = new User(userData.rows[0]);
                 resolve(newUser);
             } catch (err) {
@@ -30,7 +30,7 @@ class User {
         })
     }
 
-    static findByUsername(username) {
+    static findByUsername(username) {  
         return new Promise (async (resolve, reject) => {
             try {
                 let userData = await pgdb.query(`SELECT * FROM users WHERE username = $1;`, [ username ]);
