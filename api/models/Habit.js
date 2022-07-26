@@ -31,36 +31,6 @@ const trackingSchema = new db.Schema({
             complete: Boolean,
         },
     ],
-    // frequency: {
-    //     daily: {
-    //         day: {
-    //             type: String,
-    //             default: () => {
-    //                 const now = new Date();
-    //                 const options = {
-    //                     weekday: "long",
-    //                 };
-
-    //                 return new Intl.DateTimeFormat("en-GB", options).format(now);
-    //             },
-    //         },
-    //         status: String,
-    //     },
-    //     weekly: [
-    //         {
-    //             days: [
-    //                 { mon: Boolean },
-    //                 { tue: Boolean },
-    //                 { wed: Boolean },
-    //                 { thu: Boolean },
-    //                 { fri: Boolean },
-    //                 { sat: Boolean },
-    //                 { sun: Boolean },
-    //             ],
-    //             status: String,
-    //         },
-    //     ],
-    // },
 });
 
 const habitSchema = new db.Schema({
@@ -69,6 +39,10 @@ const habitSchema = new db.Schema({
         required: true,
     },
     tracking: trackingSchema,
+    frequency: {
+        daly: Boolean,
+        weekly: Boolean,
+    },
     createdAt: {
         type: Date,
         default: new Date(),
@@ -77,18 +51,7 @@ const habitSchema = new db.Schema({
 });
 
 habitSchema.statics.getUsersHabits = function (username) {
-    return new Promise(async (resolve, reject) => {
-        try {
-            const user = await User.findByUsername(username);
-            const habits = await this.find({ userID: user.id }).toArray();
-            resolve(habits);
-        } catch (error) {
-            reject("No habits found");
-        }
-    });
-};
-habitSchema.statics.getUsersHabits = function (username) {
-    return new Promise(async (resolve, reject) => {
+    return new Promise(async function (resolve, reject) {
         try {
             const user = await User.findByUsername(username);
             const habits = await this.find({ userID: user.id }).toArray();
@@ -99,8 +62,31 @@ habitSchema.statics.getUsersHabits = function (username) {
     });
 };
 
+habitSchema.statics.getSpecificHabit = function (username, id) {
+    return new Promise(async function (resolve, reject) {
+        try {
+            const user = await User.findByUsername(username);
+            const habit = await this.where("userID").equals(user.id).where("id").equals(id);
+            resolve(habit);
+        } catch (error) {
+            reject("No habit found");
+        }
+    });
+};
+
+habitSchema.statics.destroy = function (habitData) {
+    return new Promise(async function (resolve, reject) {
+        try {
+            const habit = await this.deleteOne({ ...habitData });
+            resolve(habit);
+        } catch (error) {
+            reject("No habit found");
+        }
+    });
+};
+
 habitSchema.statics.findByName = function (name) {
-    return new Promise(async (resolve, reject) => {
+    return new Promise(async function (resolve, reject) {
         try {
             const habit = await this.findOne({ name: name });
             resolve(habit);
