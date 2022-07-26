@@ -23,7 +23,7 @@ async function deleteUser (req, res) {  // destroy route - deleting a user - wil
     try {
         const user = await User.findByUsername(req.params.username) 
         const resp = user.destroy(); 
-        res.status(204).end();
+        res.status(204).json({msg: `This user has now been deleted: ${user.username}. Bye bye!👋`});
     } catch (err) {
         res.status(404).json({err});
     }
