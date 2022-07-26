@@ -4,7 +4,7 @@ const bcrypt = require('bcryptjs');
 
 const jwt = require("jsonwebtoken");
 
-const User = require('../models/user'); // will need to match file name
+const User = require('../models/User'); // will need to match file name
 
 
 
