@@ -21,8 +21,8 @@ services:
       - PGPASSWORD=slackingslackerz
       - PGDATABASE=habitual
       - PGPORT=5432
-      - DB_CONNECTION = mongodb://the-slackerz:slackingslackerz@mongodb:27017
-      - DB_NAME = habitual
+      - DB_CONNECTION=mongodb://the-slackerz:slackingslackerz@mongodb:27017
+      - DB_NAME=habitual
       - NODE_ENV=development
     depends_on:
       - pgdb
