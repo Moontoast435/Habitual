@@ -7,8 +7,8 @@ services:
       - PGPASSWORD=slackingslackerz
       - PGDATABASE=users
       - PGPORT=5432
-      - DB_CONNECTION = mongodb://the-slackerz:slackingslackerz@mongodb:27017
-      - DB_NAME = habits
+      - DB_CONNECTION=mongodb://the-slackerz:slackingslackerz@mongodb:27017
+      - DB_NAME=habits
       - NODE_ENV=test
     depends_on:
       - pgdb
