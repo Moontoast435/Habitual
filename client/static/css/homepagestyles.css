@@ -8,6 +8,7 @@ body {
   font-family: "Lato", sans-serif;
   text-align: center;
   background-color: #abc9e9;
+  
 }
 
 p {
@@ -76,12 +77,16 @@ p {
 #greeting {
   text-align: center;
   margin-top: 10px;
-  padding: 25px;
+  padding-top: 5px;
   background-color:whitesmoke;
+  border-radius: 30px;
+  
+  
 }
 
 .formHeading {
   text-decoration: underline;
+
 }
 
 #createHabitForm {
@@ -112,12 +117,12 @@ p {
 }
 
 #greetingPost {
-  text-align: justify;
-  margin-block:20px;
+  display: flex;
+  flex-direction: column;
   
 }
 .habit-container {
-  display: flex;
+  
   padding: 0 50px;
   gap: 0 50px;
   justify-content:center;
@@ -132,7 +137,7 @@ p {
 }
 
 .habit-footer {
-  display: flex;
+  
   gap: 0 50px;
 }
 
