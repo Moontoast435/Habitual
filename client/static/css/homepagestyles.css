@@ -107,7 +107,7 @@ body {
   animation-duration: 1s;
   animation-fill-mode: both;
   animation-delay: 1s;
-  border: 5px solid gray;
+  
 }
 
 .right {
@@ -238,15 +238,6 @@ body {
 }
 
 
-#greetingPost {
-  text-align: justify;
-  display: none;
-  border: 2px solid black;
-}
-
-
-
-
 /*form
 #greeting {
   text-align: center;
@@ -254,8 +245,6 @@ body {
   padding-top: 5px;
   background-color:whitesmoke;
   border-radius: 30px;
-  
-  
 }
 
 /*backend*/
@@ -266,7 +255,7 @@ h2 {
 }
 
 #greetingPost {
-  display: inlone;
+  display: inline;
   flex-direction: row;
   border: none;
   margin-top: 30px;
