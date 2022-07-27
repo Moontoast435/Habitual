@@ -1,0 +1,21 @@
+version: "1"
+services:
+    api:
+        image: node:16.16.0
+        working_dir: /code
+        volumes:
+            - type: bind
+              source: ./api
+              target: /code
+
+    pgdb:
+        image: postgres:14.4
+        environment:
+            - POSTGRES_USER=the-slackerz
+        volumes:
+            - "./db/pg/migrations:/docker-entrypoint-initdb.d/:ro"
+
+    mongodb:
+        image: mongo:latest
+        environment:
+            - MONGO_INITDB_ROOT_USERNAME=the-slackerz

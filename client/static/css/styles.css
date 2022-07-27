@@ -1,0 +1,219 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Bebas Neue', cursive;
+    text-align: center;
+}
+
+h1,h2,h3,h4,h5,h6{
+  font-family: 'Bebas Neue', cursive;
+}
+
+p{
+    font-family: 'Bebas Neue', cursive;
+    color:#fff;
+    font-size: 1.5rem;
+}
+
+/** Headings**/
+
+.big-heading{
+    font-family: 'Bebas Neue', cursive;
+    font-size: 3rem;
+    line-height: 1.5;
+}
+.section-heading{
+    font-size: 3rem;
+    line-height: 1.5;
+}
+
+.container-fluid{
+    padding: 17% 20%;
+    }
+
+/** Nav bar**/
+
+.navbar{
+padding: 0 0 4.5rem;
+}
+.navbar-brand{
+    font-family: 'Bebas Neue', cursive;
+    font-size:3.5rem;
+    letter-spacing: 1.5;
+    color: #fff; 
+    
+}
+
+
+/**Download buttons**/
+#btn1  {
+    border-radius: 4px;
+    background-color:#000;
+    border: none;
+    color: #fff;
+    text-align: center;
+    font-weight: 400;
+    font-size: 1.5rem;
+    padding: 10px;
+    width: 200px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+  }
+
+  #btn1 span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+  }
+  
+  #btn1 span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+    
+  }
+  
+  #btn1:hover span {
+    padding-right: 25px;
+    
+  }
+  
+  #btn1:hover span:after {
+    opacity: 1;
+    right: 0;
+    
+  }
+/** Title Section**/
+
+#title{
+    background-color: #ABC9E9;
+    color: #fff;
+    text-align: left;
+    padding-bottom: 5% ;
+}
+#title .container-fluid{
+    padding: 3% 8% 7%;
+}
+/** Title Image**/
+
+.trackerGify{
+  
+    padding: 3% 5%;
+    width: 100%;
+    height: 100%;
+    transform: rotate(10deg);
+    position: relative;
+    display: flex;
+    
+}
+/** Features section**/
+#features{
+  padding: 6% 5%;  
+  position: relative;
+  
+
+}
+.feature-title{
+    margin-top: 15px;
+    font-size: 1.5rem;
+}
+.feature-box{
+    padding: 5%;
+
+}
+.feature-box{
+    color: #d0c4e0;
+    margin-bottom:1rem;
+}
+.feature-box:hover{
+    color: #f5bfd7;
+}
+
+
+/** cta section**/
+
+#cta{
+    background-color:#ABC9E9;
+    color: #fff;
+    padding: 8% 5%;
+    margin: 10px;
+    text-align: center;
+    }
+    /* btn2 */
+    #btn2  {
+        border-radius: 4px;
+        background-color: #000;
+        border: none;
+        color: #fff;
+        text-align: center;
+        font-size: 1.2rem;
+        padding: 10px;
+        width: 200px;
+        transition: all 0.5s;
+        cursor: pointer;
+        margin:20px;
+      }
+    
+      #btn2 span {
+        cursor: pointer;
+        display: inline-block;
+        position: relative;
+        transition: 0.5s;
+      }
+      
+      #btn2 span:after {
+        content: '\00bb';
+        position: absolute;
+        opacity: 0;
+        top: 0;
+        right: -20px;
+        transition: 0.5s;
+        
+      }
+      
+      #btn2:hover span {
+        padding-right: 25px;
+        
+      }
+      
+      #btn2:hover span:after {
+        opacity: 1;
+        right: 0;
+        
+      }
+
+     /** Footer section**/
+    #footer{
+        padding: 7% 5%;
+        text-align: center;
+    }
+    .social-icon{
+    margin: 20px 10px;
+    }
+
+    #footerP {
+      color: #000;
+    }
+
+/** media query**/
+@media (max-width:1028px) {
+
+#title{
+text-align: center;}
+
+.trackerGify{
+display: none;
+position: relative;
+
+}
+
+}

@@ -1,0 +1,54 @@
+services:
+  client:
+    container_name: debug_dev_client
+    build: ./client
+    image: debug_client
+    ports: 
+      - 8080:8080
+    working_dir: /code
+    volumes:
+      - type: bind
+        source: ./client
+        target: /code
+    command: [ "http-server" ]
+  api:
+    container_name: debug_dev_api
+    ports: 
+      - 3000:3000
+    environment: 
+      - PGUSER=the-slackerz
+      - PGHOST=pgdb
+      - PGPASSWORD=slackingslackerz
+      - PGDATABASE=habitual
+      - PGPORT=5432
+      - DB_CONNECTION=mongodb://the-slackerz:slackingslackerz@mongodb:27017
+      - DB_NAME=habitual
+      - NODE_ENV=development
+    depends_on:
+      - pgdb
+      - mongodb
+    command: bash -c "npm install &&
+                      npm run pgSeedDev &&
+                      npm run mongoSeedDev &&
+                      npm run dev"
+
+  pgdb:
+    container_name: debug_dev_pgdb
+    volumes:
+      - "dbdata:/var/lib/postgresql/data"
+    environment: 
+      - POSTGRES_DB=habitual
+      - POSTGRES_PASSWORD=slackingslackerz
+
+  mongodb:
+    container_name: debug_dev_mongodb
+    volumes:
+      - "dbdata:/var/lib/mongodb/data"
+    environment:
+      - MONGO_INITDB_DATABASE=habitual
+      - MONGO_INITDB_ROOT_PASSWORD=slackingslackerz
+volumes:
+  dbdata:
+networks: 
+  default:
+    name: debug_api

@@ -1,0 +1,357 @@
+@import url('https://fonts.googleapis.com/css?family=Rubik:400,500&display=swap');
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Rubik', sans-serif;
+  text-align: center;
+  background-color: #abc9e9;
+}
+
+p {
+  font-family: "Bebas Neue", cursive;
+  color: #fff;
+  font-size: 1.5rem;
+}
+
+/** Nav bar**/
+
+.navbar {
+  padding: 0 0 4.5rem;
+}
+.navbar-brand {
+  font-family: 'Bebas Neue', cursive;
+  font-size:3rem;
+  letter-spacing: 1.5;
+  color: #fff;
+  display: inline;
+  margin-top: 15px;
+  margin-left: 8px;
+  float: left;
+  text-decoration: none;
+}
+
+/* logout btn */
+#logoutBtn {
+  border-radius: 4px;
+  background-color: #fff;
+  border: none;
+  color: #000;
+  text-align: center;
+  font-size: 1.2rem;
+  padding: 12px;
+  width: 130px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin-top: 20px;
+  margin-right: 8px;
+  float: right;
+}
+
+#logoutBtn span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+#logoutBtn span:after {
+  content: "\00bb";
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+#logoutBtn:hover {
+  background-color:#DE2B7C;
+}
+
+#logoutBtn:hover span {
+  padding-right: 25px;
+}
+
+#logoutBtn:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+/* opt 2 */
+/* 
+body {
+  font-family: 'Rubik', sans-serif;
+} */
+
+.container {
+  display: flex;
+  height: 50vh;
+  margin-inline: 10px;
+  margin-block: 10px;
+}
+
+.left {
+  overflow: hidden;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  animation-name: left;
+  animation-duration: 1s;
+  animation-fill-mode: both;
+  animation-delay: 1s;
+}
+
+.right {
+  flex: 1;
+  background-color:#abc9e9;
+  transition: 1s; 
+  overflow: hidden;
+  margin-top:40px
+}
+
+/* #rightImg {
+  
+  flex: 2;
+  overflow: hidden;
+  width: 50%;
+} */
+
+
+
+.header > h1 {
+  margin: 0;
+  color: #fff;
+}
+
+.header > h4 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-weight: normal;
+  font-size: 1.2rem;
+  color:#000;
+}
+
+.form {
+  max-width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+}
+
+#habitTitle {
+  padding-top: 20px;
+  text-decoration: underline;
+  font-size: 1.5rem;
+
+}
+
+#habitRepetition {
+  padding-top: 20px;
+  text-decoration: underline;
+  font-size: 1.5rem;
+}
+
+#habitName {
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+  width: 140px;
+  border: 2px solid gray;
+  border-radius: 30px;
+  
+}
+
+#frequency {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  width: 140px;
+  border: 2px solid gray;
+  border-radius: 30px;
+}
+
+.form > p {
+  text-align: right;
+}
+
+.form > p > a {
+  color: #000;
+  font-size: 14px;
+}
+
+.form-field {
+  height: 46px;
+  padding: 0 16px;
+  border: none;
+  font-family: 'Rubik', sans-serif;
+  outline: 0;
+  transition: .2s;
+  margin-top: 10px;
+  display: flex;
+  animation-delay: 2s;
+}
+
+.form-field:focus {
+  border-color: #abc9e9;
+}
+
+.form > button {
+  padding: 12px 5px;
+  border: 0;
+  background: linear-gradient(to right, #000 0%,gray 100%); 
+  border-radius: 3px;
+  margin-top: 10px;
+  color: #fff;
+  letter-spacing: 1px;
+  font-family: 'Rubik', sans-serif;
+}
+
+.animation {
+  animation-name: move;
+  animation-duration: .4s;
+  animation-fill-mode: both;
+  animation-delay: 2s;
+}
+
+
+/* 
+.a1, .a2, .a3, .a4, .a5, .a6 {
+  animation-delay: 2s;
+} */
+
+/* .a2 {
+  animation-delay: 2s;
+}
+
+.a3 {
+  animation-delay: 2s;
+}
+
+.a4 {
+  animation-delay: 2s;
+}
+
+.a5 {
+  animation-delay: 2s;
+}
+
+.a6 {
+  animation-delay: 2s;
+} */
+
+@keyframes move {
+  0% {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-40px);
+  }
+
+  100% {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+}
+
+@keyframes left {
+  0% {
+    opacity: 0;
+    width: 0;
+  }
+
+  100% {
+    opacity: 1;
+    padding: 20px 40px;
+    width: 440px;
+  }
+}
+
+
+#greetingPost {
+  text-align: justify;
+  display: none;
+  border: 2px solid black;
+}
+
+
+#createPost {
+  width: 150px;
+  height: 55px;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 4px;
+  margin-top: 5px;
+  justify-content: center;
+  padding-bottom: 15px;
+}
+
+
+/*form
+#greeting {
+  text-align: center;
+  margin-top: 10px;
+  padding-top: 5px;
+  background-color:whitesmoke;
+  border-radius: 30px;
+  
+  
+}
+
+.formHeading {
+  text-decoration: underline;
+
+}
+
+
+
+/*backend
+#greetingPost {
+  display: flex;
+  flex-direction: column;
+}
+.habit-container {
+  padding: 0 50px;
+  gap: 0 50px;
+  justify-content: center;
+}
+
+.habit-name {
+  font-size: 1.2rem;
+}
+
+.habit-information {
+  font-size: 1.2rem;
+}
+
+.habit-footer {
+  gap: 0 50px;
+} 
+*/
+
+/** media query**/
+@media (max-width: 1028px) {
+  #title {
+    text-align: center;
+  }
+
+  #greetingPost {
+    text-align: center;
+  }
+  /* form opt-3*/
+  /* Container holding the image and the text */
+  .container {
+    position: relative;
+    text-align: center;
+    color: white;
+    font-weight: 100;
+  }
+
+#greetingPost {
+  text-align: center;
+}
+
+}
