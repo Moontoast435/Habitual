@@ -54,8 +54,10 @@ async function requestRegistration(e) {
   }
 }
 
-function login(data) {
-  localStorage.setItem("username", data.user);
+function login(token) {
+  const user = jwt_decode(token);
+  localStorage.setItem("token", token);
+  localStorage.setItem("username", user.username);
   location.href = "/homeindex.html";
 }
 
