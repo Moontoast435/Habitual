@@ -6,7 +6,7 @@ Habit.insertMany(seedData)
         console.log("Saved Successfully", value);
     })
     .then(() => {
-        console.log('Dev MongoDB database seeded');
+        console.log("Dev MongoDB database seeded");
         process.exit();
     })
     .catch((error) => {
