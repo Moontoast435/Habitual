@@ -1,6 +1,5 @@
 const mongoose = require("mongoose");
 const connection = require("../dbConfig/mongo/connection");
-const User = require("./User");
 
 const habitSchema = new mongoose.Schema({
   name: {
@@ -17,7 +16,10 @@ const habitSchema = new mongoose.Schema({
             weekday: "long",
           };
 
-          return new Intl.DateTimeFormat("en-GB", options).format(now);
+                    return new Intl.DateTimeFormat("en-GB", options).format(now);
+                },
+            },
+            complete: false,
         },
       },
       date: {
@@ -46,6 +48,8 @@ const habitSchema = new mongoose.Schema({
   },
   userID: Number,
 });
+
+const Habit = mongoose.model("Habit", habitSchema);
 
 habitSchema.statics.getUsersHabits = function (userID) {
     return new Promise(async function (resolve, reject) {
@@ -91,7 +95,5 @@ habitSchema.statics.findByName = function (name) {
         }
     });
 };
-
-const Habit = mongoose.model("Habit", habitSchema);
 
 module.exports = Habit;
