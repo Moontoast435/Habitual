@@ -43,46 +43,6 @@ async function deleteHabit(id) {
   }
 }
 
-async function sendLoginDetails(e) {
-  e.preventDefault();
-  try {
-    const options = {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(new FormData(e.target)),
-    };
-    const response = await fetch(`${API_URL}/login`, options);
-    const { err } = await response.json();
-    if (err) {
-      throw Error(err);
-    } else {
-      return;
-    }
-  } catch (err) {
-    console.warn(err);
-  }
-}
-
-async function sendNewUserDetails(e) {
-  e.preventDefault();
-  try {
-    const options = {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(new FormData(e.target)),
-    };
-    const response = await fetch(`${API_URL}/register`, options);
-    const { err } = await response.json();
-    if (err) {
-      throw Error(err);
-    } else {
-      return;
-    }
-  } catch (err) {
-    console.warn(err);
-  }
-}
-
 async function getTrackingInfo(id) {
   try {
     const response = await fetch(`${API_URL}/username/${id}`);
@@ -92,7 +52,7 @@ async function getTrackingInfo(id) {
     console.warn(err);
   }
 }
-
+// to do
 async function updateTrackingInformation() {
   try {
     const options = {
