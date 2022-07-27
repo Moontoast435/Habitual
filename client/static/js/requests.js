@@ -92,3 +92,12 @@ async function getTrackingInfo(id) {
     console.warn(err);
   }
 }
+
+async function updateTrackingInformation() {
+  try {
+    const options = {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+    };
+  } catch {}
+}

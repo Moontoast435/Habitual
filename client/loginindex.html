@@ -10,7 +10,10 @@
       href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap"
       rel="stylesheet"
     />
-    <script defer src='https://cdn.jsdelivr.net/npm/jwt-decode@1.5.1/build/jwt-decode.min.js'></script>
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/jwt-decode@1.5.1/build/jwt-decode.min.js"
+    ></script>
   </head>
   <body>
     <div class="main">
@@ -19,11 +22,18 @@
       <div class="signup">
         <form id="signupForm">
           <label for="chk" aria-hidden="true">Sign up</label>
-          <input type="text" name="txt" placeholder="User name" required="" />
+          <input
+            type="text"
+            name="txt"
+            id="username"
+            placeholder="User name"
+            required=""
+          />
           <input type="email" name="email" placeholder="Email" required="" />
           <input
             type="password"
             name="pswd"
+            id="password"
             placeholder="Password"
             required=""
           />
