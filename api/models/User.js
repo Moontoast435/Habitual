@@ -2,8 +2,9 @@ const pgdb = require('../dbConfig/pg/init.js') // change this when tims made the
 
 class User {
     constructor(data) {
+        this.id = data.id;
         this.username = data.username;
-        this.passwordDigest = data.hashed_password
+        this.passwordDigest = data.hashed_password;
     }
 
     static get all() {
