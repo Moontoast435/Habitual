@@ -28,8 +28,7 @@ services:
       - pgdb
       - mongodb
     command: bash -c "npm install &&
-                      npm run pgSeedDev &&
-                      npm run mongoSeedDev &&
+                      npm run seedDev &&
                       npm run dev"
 
   pgdb:
