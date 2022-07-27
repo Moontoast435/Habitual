@@ -56,7 +56,7 @@ async function deleteHabit(id) {
     console.warn(err);
   }
 }
-
+/*
 async function getTrackingInfo(id) {
   try {
     const response = await fetch(`${API_URL}/habits/${username}/${id}`);
@@ -65,13 +65,27 @@ async function getTrackingInfo(id) {
   } catch (err) {
     console.warn(err);
   }
-}
+}*/
 // to do
-async function updateTrackingInformation() {
+async function postTrackingInformation(name, buttonId) {
   try {
     const options = {
-      method: "PATCH",
+      method: "POST",
       headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ buttonId }),
     };
-  } catch {}
+
+    const response = await fetch(
+      `${API_URL}/habits/${username}/${name}`,
+      options
+    );
+    const { err } = await response.json();
+    if (err) {
+      throw Error(err);
+    } else {
+      window.location.reload();
+    }
+  } catch (err) {
+    console.warn(err);
+  }
 }
