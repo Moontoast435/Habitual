@@ -8,13 +8,12 @@ loginForm.addEventListener("submit", (e) => {
 
 async function requestLogin(e) {
   e.preventDefault();
-  const username = document.getElementById("username").value;
-  const password = document.getElementById("password").value;
+
   try {
     const options = {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ username, password }),
+      body: JSON.stringify(Object.fromEntries(new FormData(e.target))),
     };
     const response = await fetch(`${API_URL}/login`, options);
     const data = await response.json();
@@ -35,13 +34,11 @@ signupForm.addEventListener("submit", (e) => {
 
 async function requestRegistration(e) {
   e.preventDefault();
-  const username = document.getElementById("register-username").value;
-  const password = document.getElementById("register-password").value;
   try {
     const options = {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ username, password }),
+      body: JSON.stringify(Object.fromEntries(new FormData(e.target))),
     };
     const response = await fetch(`${API_URL}/register`, options);
     const data = await response.json();
@@ -58,7 +55,7 @@ function login(token) {
   const user = jwt_decode(token);
   localStorage.setItem("token", token);
   localStorage.setItem("username", user.username);
-  location.href = "/homeindex.html";
+  location.href = "../homeindex.html";
 }
 
 function logout() {
