@@ -3,7 +3,7 @@ let API_URL = `http://localhost:3000`;
 const loginForm = document.getElementById("loginForm");
 
 loginForm.addEventListener("submit", (e) => {
-  sendLoginDetails(e);
+  requestLogin(e);
 });
 
 async function requestLogin(e) {
@@ -30,7 +30,7 @@ async function requestLogin(e) {
 const signupForm = document.getElementById("signupForm");
 
 signupForm.addEventListener("submit", (e) => {
-  sendNewUserDetails(e);
+  requestRegistration(e);
 });
 
 async function requestRegistration(e) {
