@@ -59,7 +59,7 @@ async function deleteHabit(id) {
 
 async function getTrackingInfo(id) {
   try {
-    const response = await fetch(`${API_URL}/username/${id}`);
+    const response = await fetch(`${API_URL}/habits/${username}/${id}`);
     const data = await response.json();
     return data;
   } catch (err) {

@@ -101,7 +101,7 @@ displayAllHabits();
 
 // Javascript for the tracking information buttons
 
-const trackerButtons = document.getElementsByClassName("habit-complete-button");
+const trackerButtons = document.querySelectorAll();
 
 let currentDate = new Date();
 
