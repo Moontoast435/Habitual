@@ -55,7 +55,7 @@ function login(token) {
   const user = jwt_decode(token);
   localStorage.setItem("token", token);
   localStorage.setItem("username", user.username);
-  location.href = "../homeindex.html";
+  location.href = "/homeindex.html";
 }
 
 function logout() {
