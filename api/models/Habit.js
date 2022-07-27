@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const connection = require("../dbConfig/mongo/connection")
+const connection = require("../dbConfig/mongo/connection");
 const User = require("./User");
 
 const habitSchema = new mongoose.Schema({
@@ -47,10 +47,10 @@ const habitSchema = new mongoose.Schema({
     userID: Number,
 });
 
-habitSchema.statics.getUsersHabits = function (username) {
+habitSchema.statics.getUsersHabits = function (userID) {
     return new Promise(async function (resolve, reject) {
         try {
-            const user = await User.findByUsername(username);
+            const user = await User.findByUsername(userID);
             const habits = await this.find({ userID: user.id }).toArray();
             resolve(habits);
         } catch (error) {
@@ -59,11 +59,10 @@ habitSchema.statics.getUsersHabits = function (username) {
     });
 };
 
-habitSchema.statics.getSpecificHabit = function (username, id) {
+habitSchema.statics.getSpecificHabit = function (userID, habitName) {
     return new Promise(async function (resolve, reject) {
         try {
-            const user = await User.findByUsername(username);
-            const habit = await this.where("userID").equals(user.id).where("id").equals(id);
+            const habit = await this.where("userID").equals(userID).where("name").equals(habitName);
             resolve(habit);
         } catch (error) {
             reject("No habit found");
