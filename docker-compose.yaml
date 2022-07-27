@@ -19,5 +19,3 @@ services:
         image: mongo:latest
         environment:
             - MONGO_INITDB_ROOT_USERNAME=the-slackerz
-        # volumes:
-        #     - "./db/mongo/seeds.js:/docker-entrypoint-initdb.d/seeds.js:ro"

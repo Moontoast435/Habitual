@@ -1,7 +1,6 @@
 const Habit = require("../../models/Habit");
 
-const habit1 = [
-    {
+const habit1 = {
         name: "eat breakfast",
         dates: [
             {
@@ -13,11 +12,9 @@ const habit1 = [
             weekly: true,
         },
         userID: 1,
-    },
-];
+};
 
-const habit2 = [
-    {
+const habit2 = {
         name: "eat breakfast",
         dates: [
             {
@@ -29,10 +26,9 @@ const habit2 = [
             weekly: true,
         },
         userID: 2,
-    },
-];
+};
 
-Habit.insertMany(habit1, habit2)
+Habit.insertMany([habit1, habit2])
     .then((value) => {
         console.log("Saved Successfully", value);
     })
