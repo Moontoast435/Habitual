@@ -16,10 +16,7 @@ const habitSchema = new mongoose.Schema({
             weekday: "long",
           };
 
-                    return new Intl.DateTimeFormat("en-GB", options).format(now);
-                },
-            },
-            complete: false,
+          return new Intl.DateTimeFormat("en-GB", options).format(now);
         },
       },
       date: {
@@ -35,7 +32,7 @@ const habitSchema = new mongoose.Schema({
           return new Intl.DateTimeFormat("en-GB", options).format(now);
         },
       },
-      complete: Boolean,
+      complete: false,
     },
   ],
   frequency: {
@@ -52,48 +49,51 @@ const habitSchema = new mongoose.Schema({
 const Habit = mongoose.model("Habit", habitSchema);
 
 habitSchema.statics.getUsersHabits = function (userID) {
-    return new Promise(async function (resolve, reject) {
-        try {
-            const habits = await Habit.find({ userID: userID });
-            resolve(habits);
-        } catch (error) {
-            console.log(error);
-            reject("No habits found");
-        }
-    });
+  return new Promise(async function (resolve, reject) {
+    try {
+      const habits = await Habit.find({ userID: userID });
+      resolve(habits);
+    } catch (error) {
+      console.log(error);
+      reject("No habits found");
+    }
+  });
 };
 
 habitSchema.statics.getSpecificHabit = function (userID, habitName) {
-    return new Promise(async function (resolve, reject) {
-        try {
-            const habit = await Habit.where("userID").equals(userID).where("name").equals(habitName);
-            resolve(habit);
-        } catch (error) {
-            reject("No habit found");
-        }
-    });
+  return new Promise(async function (resolve, reject) {
+    try {
+      const habit = await Habit.where("userID")
+        .equals(userID)
+        .where("name")
+        .equals(habitName);
+      resolve(habit);
+    } catch (error) {
+      reject("No habit found");
+    }
+  });
 };
 
 habitSchema.statics.destroy = function (habitData) {
-    return new Promise(async function (resolve, reject) {
-        try {
-            const habit = await Habit.deleteOne({ ...habitData });
-            resolve(habit);
-        } catch (error) {
-            reject("No habit found");
-        }
-    });
+  return new Promise(async function (resolve, reject) {
+    try {
+      const habit = await Habit.deleteOne({ ...habitData });
+      resolve(habit);
+    } catch (error) {
+      reject("No habit found");
+    }
+  });
 };
 
 habitSchema.statics.findByName = function (name) {
-    return new Promise(async function (resolve, reject) {
-        try {
-            const habit = await Habit.findOne({ name: name });
-            resolve(habit);
-        } catch (error) {
-            reject("Habit not found");
-        }
-    });
+  return new Promise(async function (resolve, reject) {
+    try {
+      const habit = await Habit.findOne({ name: name });
+      resolve(habit);
+    } catch (error) {
+      reject("Habit not found");
+    }
+  });
 };
 
 module.exports = Habit;

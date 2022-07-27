@@ -40,46 +40,57 @@ function displayAllHabits() {
     habitName.textContent = name;
     habitHeader.appendChild(habitName);
 
-    const habitInfo = document.createElement("p");
-    const frequencyInfo = document.createElement("p");
-    frequencyInfo.classList = "habit-information";
-    habitInfo.classList = "habit-information";
-    habitInfo.textContent = "tracking info";
-    frequencyInfo.textContent = frequency;
-    habitBody.appendChild(habitInfo);
-    habitBody.appendChild(frequencyInfo);
+    const startOfWeekBox = document.createElement("div");
+    startOfWeekBox.classList = "start-week-box";
+    startOfWeekBox.id = `startWeek + ${id}`;
+
+    const endOfWeekBox = document.createElement("div");
+    endOfWeekBox.classList = "end-week-box";
+    endOfWeekBox.id = `endWeek + ${id}`;
+
+    let numberOfWeeks = 1;
 
     if (frequency.weekly === true) {
-      let startDate = new Date();
-      let;
+      let currentDate = new Date();
+
+      const startOfTheWeek = new Date();
+      startOfTheWeek.setDate(startOfTheWeek.getDate() - currentDate + 1);
+      startOfTheWeek.toLocaleDateString();
+      let shortStartOfWeek = startOfTheWeek.toString().slice(0, 10);
+
+      const endOfWeek = new Date();
+      endOfWeek.setDate(endOfWeek.getDate() - currentDay + 1);
+      endOfWeek.setDate(endOfWeek.getDate() + numberOfWeeks * 6);
+      endOfWeek.toLocaleDateString();
+      let shortEndOfWeek = endOfWeek.toString().slice(0, 10);
     }
     const mon = document.createElement("button");
     mon.classList = "habit-complete-button";
-    mon.id = `${id}`;
+    mon.id = `mon + ${id}`;
 
     const tue = document.createElement("button");
     tue.classList = "habit-complete-button";
-    tue.id = `${id}`;
+    tue.id = `tue + ${id}`;
 
     const wed = document.createElement("button");
     wed.classList = "habit-complete-button";
-    wed.id = `${id}`;
+    wed.id = `wed + ${id}`;
 
     const thu = document.createElement("button");
     thu.classList = "habit-complete-button";
-    thu.id = `${id}`;
+    thu.id = `thu + ${id}`;
 
     const fri = document.createElement("button");
     fri.classList = "habit-complete-button";
-    fri.id = `${id}`;
+    fri.id = `fri + ${id}`;
 
     const sat = document.createElement("button");
     sat.classList = "habit-complete-button";
-    sat.id = `${id}`;
+    sat.id = `sat + ${id}`;
 
     const sun = document.createElement("button");
     sun.classList = "habit-complete-button";
-    sun.id = `${id}`;
+    sun.id = `sun + ${id}`;
 
     habitFooter.appendChild(mon);
     habitFooter.appendChild(tue);
