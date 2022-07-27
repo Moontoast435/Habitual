@@ -291,12 +291,8 @@ h2 {
 */
 
 /** media query**/
-@media screen (max-width: 1028px) {
+@media screen and (max-width: 1028px) {
   #title {
-    text-align: center;
-  }
-
-  #greetingPost {
     text-align: center;
   }
 
