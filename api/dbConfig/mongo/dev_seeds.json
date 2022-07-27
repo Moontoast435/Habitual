@@ -1,0 +1,28 @@
+[
+    {
+        "name": "eat breakfast",
+        "dates": [
+            {
+                "complete": false
+            }
+        ],
+        "frequency": {
+            "daily": false,
+            "weekly": true
+        },
+        "userID": 1
+    },
+    {
+        "name": "eat breakfast",
+        "dates": [
+            {
+                "complete": false
+            }
+        ],
+        "frequency": {
+            "daily": false,
+            "weekly": true
+        },
+        "userID": 2
+    }
+]
