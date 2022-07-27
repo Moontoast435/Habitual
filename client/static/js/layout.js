@@ -21,8 +21,8 @@ const createHabitForm = document.getElementById("createPost");
 const habitCollection = document.getElementById("greetingPost"); // will change depending on what id Aditi has set
 
 function displayAllHabits() {
-  //  const habits = getAllHabits();
-  //  const { name, tracking, frequency, streak } = habits.habits; //not sure what datapoints will be fetched from DB yet
+  const habits = getAllHabits();
+  const { name, tracking, frequency, streak } = habits.habits; //not sure what datapoints will be fetched from DB yet
 
   const habitContainer = document.createElement("div");
   habitContainer.classList = "habit-container";
