@@ -1,8 +1,3 @@
-const myDate = new Date();
-//const nextDayOfMonth = myDate.getDate() + 20;
-//myDate.setDate(nextDayOfMonth);
-//const newDate = myDate.toLocaleString();
-console.log(myDate);
 // Placeholder id's have been used, will be changed to reflect the actual HTML element ID's
 const createMenuBtn = document.getElementById("createMenuBtn");
 const createMenu = document.getElementById("createMenu");
@@ -54,12 +49,10 @@ function displayAllHabits() {
     habitBody.appendChild(habitInfo);
     habitBody.appendChild(frequencyInfo);
 
-    const streakInfo = document.createElement("p");
-    streakInfo.classList = "streak-information";
-    streakInfo.textContent = "3";
-    habitFooter.appendChild(streakInfo);
-    // if (frequency.daily === true) {
-
+    if (frequency.weekly === true) {
+      let startDate = new Date();
+      let;
+    }
     const mon = document.createElement("button");
     mon.classList = "habit-complete-button";
     mon.id = `${id}`;
