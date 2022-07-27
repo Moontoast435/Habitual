@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const connection = require("../dbConfig/mongo/connection")
 const User = require("./User");
 
 const habitSchema = new mongoose.Schema({
@@ -93,29 +94,5 @@ habitSchema.statics.findByName = function (name) {
 };
 
 const Habit = mongoose.model("Habit", habitSchema);
-
-const habitD = [
-    {
-        name: "drink water",
-        dates: [
-            {
-                complete: true,
-            },
-        ],
-        frequency: {
-            daily: true,
-            weekly: false,
-        },
-        userID: 1,
-    },
-];
-
-Habit.insertMany(habitD)
-    .then((value) => {
-        console.log("Saved Successfully", value);
-    })
-    .catch((error) => {
-        console.log(error);
-    });
 
 module.exports = Habit;

@@ -10,12 +10,11 @@ body {
   font-family: 'Rubik', sans-serif;
   text-align: center;
   background-color: #abc9e9;
-  
 }
 
 p {
-  font-family: 'Bebas Neue', cursive;
-  color:#fff;
+  font-family: "Bebas Neue", cursive;
+  color: #fff;
   font-size: 1.5rem;
 }
 
@@ -313,10 +312,8 @@ body {
 #greetingPost {
   display: flex;
   flex-direction: column;
-  
 }
 .habit-container {
-  
   padding: 0 50px;
   gap: 0 50px;
   justify-content: center;
@@ -331,7 +328,6 @@ body {
 }
 
 .habit-footer {
-  
   gap: 0 50px;
 } 
 */
@@ -342,6 +338,17 @@ body {
     text-align: center;
   }
 
+  #greetingPost {
+    text-align: center;
+  }
+  /* form opt-3*/
+  /* Container holding the image and the text */
+  .container {
+    position: relative;
+    text-align: center;
+    color: white;
+    font-weight: 100;
+  }
 
 #greetingPost {
   text-align: center;
