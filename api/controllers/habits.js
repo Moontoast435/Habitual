@@ -1,5 +1,5 @@
-const User = require('../models/user'); 
-const Habit = require('../models/habit');   //will need to match file name
+const User = require('../models/User'); 
+const Habit = require('../models/Habit');   //will need to match file name
 
 async function showAllHabits (req, res) {   // index route - show all habits belonging to a user - will need Auth 
     try {

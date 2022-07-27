@@ -1,7 +1,12 @@
-const db = require("../dbConfig/mongo/dbConfig");
+const mongoose = require("mongoose");
+const connection = require("../dbConfig/mongo/connection")
 const User = require("./User");
 
-const trackingSchema = new db.Schema({
+const habitSchema = new mongoose.Schema({
+    name: {
+        type: String,
+        required: true,
+    },
     dates: [
         {
             day: {
@@ -31,20 +36,12 @@ const trackingSchema = new db.Schema({
             complete: Boolean,
         },
     ],
-});
-
-const habitSchema = new db.Schema({
-    name: {
-        type: String,
-        required: true,
-    },
-    tracking: trackingSchema,
     frequency: {
-        daly: Boolean,
+        daily: Boolean,
         weekly: Boolean,
     },
     createdAt: {
-        type: Date,
+        type: String,
         default: new Date(),
     },
     userID: Number,
@@ -96,6 +93,6 @@ habitSchema.statics.findByName = function (name) {
     });
 };
 
-const Habit = db.model("Habit", habitSchema);
+const Habit = mongoose.model("Habit", habitSchema);
 
 module.exports = Habit;
