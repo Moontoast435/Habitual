@@ -17,8 +17,8 @@ async function showHabit (req, res) {    // show route - returns a specific habi
         const user = await User.findByUsername(req.params.username); // will change this depending whats being sent in the request body - get user via auth maybe?
         //currently assuming finding specific habit method will take params of a users id/email/username and then also a habit id?
         const userId = user.id;
-        const habitName = req.params.name
-        const habit = await Habit.getSpecificHabit(userId, habitName.replaceAll('%', ' ')); //may need to be req.params.habitId
+        // const habitName = req.params.name
+        const habit = await Habit.getSpecificHabit(userId, req.params.name.replaceAll('%', ' ')); //may need to be req.params.habitId
         res.status(200).json(habit);
     } catch (err) {
         res.status(404).json({err});
@@ -29,8 +29,9 @@ async function addNewHabit (req, res) {  // create route - adds a new habit a us
     try {
         const user = await User.findByUsername(req.params.username)
         const userId = user.id;
-        const habit = await Habit.create(userId, req.body.habit, req.body.frequency)// need to change these depending on params in stefans create method in habit model
+        const habit = await Habit.create({name: req.body.habit, dates: req.body.dates, frequency: req.body.frequency, userID: userId})// need to change these depending on params in stefans create method in habit model
         res.status(201).json(habit);
+        console.log(habit._id)
     } catch (err) {
         res.status(422).json({err});
     }
