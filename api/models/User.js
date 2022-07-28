@@ -37,8 +37,8 @@ class User {
     static findByUsername(username) {
         return new Promise(async (resolve, reject) => {
             try {
-                // let userData = await pgdb.query(`SELECT * FROM users WHERE username = $1;`, [username]);
-                let userData = await pgdb.query(`SELECT * FROM users;`);
+                console.log(username);
+                let userData = await pgdb.query(`SELECT * FROM users WHERE username = $1;`, [username]);
                 console.log(userData)
                 let user = new User(userData.rows[0]);
                 resolve(user);
