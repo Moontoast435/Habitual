@@ -27,17 +27,15 @@ async function createHabit(e) {
     date.toString().slice(0, 10);
   } else {
     let currentDate = new Date();
-    currentDate.toLocaleDateString();
-    currentDate.toString().slice(0, 10);
     weekly = true;
     daily = false;
     const startOfTheWeek = new Date();
-    startOfTheWeek.setDate(startOfTheWeek.getDate() - currentDate + 1);
+    startOfTheWeek.setDate(startOfTheWeek.getDate() - currentDate.getDay() + 1);
     startOfTheWeek.toLocaleDateString();
     let shortStartOfWeek = startOfTheWeek.toString().slice(0, 10);
 
     const endOfWeek = new Date();
-    endOfWeek.setDate(endOfWeek.getDate() - currentDate + 7);
+    endOfWeek.setDate(endOfWeek.getDate() - currentDate.getDay() + 7);
     endOfWeek.toLocaleDateString();
     let shortEndOfWeek = endOfWeek.toString().slice(0, 10);
 
@@ -157,16 +155,17 @@ async function sendCurrentDate(name, currentDate, frequency) {
   }
 }
 
-async function updateDaysOfTheWeek(name, day) {
+async function updateDate(objectId, date) {
+  const username = localStorage.getItem("username");
   try {
     const options = {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ day }),
+      body: JSON.stringify({ date, complete: false }),
     };
 
     const response = await fetch(
-      `${API_URL}/habits/${username}/${name}`,
+      `${API_URL}/habits/${username}/${objectId}`,
       options
     );
 
@@ -181,16 +180,17 @@ async function updateDaysOfTheWeek(name, day) {
   }
 }
 
-async function updateDailyTracking(name, day) {
+async function completeHabit(objectId, date) {
+  const username = localStorage.getItem("username");
   try {
     const options = {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ day }),
+      body: JSON.stringify({ complete: true }),
     };
 
     const response = await fetch(
-      `${API_URL}/habits/${username}/${name}`,
+      `${API_URL}/habits/${username}/${objectId}/complete`,
       options
     );
 
@@ -205,4 +205,6 @@ async function updateDailyTracking(name, day) {
   }
 }
 
-//async function
+async function compareDates() {
+  let curren;
+}

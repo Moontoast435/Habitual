@@ -52,9 +52,23 @@ function displayAllHabits() {
     habitBody.appendChild(endOfWeekBox);
     endOfWeekBox.style.display = "none";
 
-    let numberOfWeeks = 1;
+    let currentDate;
 
     if (frequency.weekly === true) {
+      currentDate = new Date();
+      const startOfTheWeek = new Date();
+      startOfTheWeek.setDate(
+        startOfTheWeek.getDate() - currentDate.getDay() + 1
+      );
+      startOfTheWeek.toLocaleDateString();
+      let shortStartOfWeek = startOfTheWeek.toString().slice(0, 10);
+
+      const endOfWeek = new Date();
+      endOfWeek.setDate(endOfWeek.getDate() - currentDate.getDay() + 7);
+      endOfWeek.toLocaleDateString();
+      let shortEndOfWeek = endOfWeek.toString().slice(0, 10);
+      currentDate = `${shortStartOfWeek} - ${shortEndOfWeek}`;
+      
       dates.forEach((date) => {
         let dateDisplay = document.createElement("div");
         let dateInfo = document.createElement("p");
@@ -83,6 +97,21 @@ function displayAllHabits() {
         const sun = document.createElement("button");
         sun.classList = `habit-complete-day-button ${id}`;
 
+      })
+      } else {
+        currentDate = new Date();
+        currentDate.toLocaleDateString();
+        currentDate.toString().slice(0, 10);
+      
+      }
+    
+      if (currentDate !== dates[-1]) {
+        updateDate(currentDate)
+      } else {
+        return
+      }
+         
+
         Array.from(habitTrackerButtons).forEach((button) => {
           button.addEventListener("click", () => {
             button.style.backgroundColor = "purple";
@@ -98,7 +127,8 @@ function displayAllHabits() {
         habitFooter.appendChild(fri);
         habitFooter.appendChild(sat);
         habitFooter.appendChild(sun);
-      });
+      })
+    
       /* let currentDate = new Date();
 
       const startOfTheWeek = new Date();
