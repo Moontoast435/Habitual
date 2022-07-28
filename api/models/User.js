@@ -49,11 +49,8 @@ class User {
     destroy() {
         return new Promise(async (resolve, reject) => {
             try {
-                const destruction = await pgdb.query(`DELETE FROM users WHERE username = $1 RETURNING username;`, [
-                    this.username,
-                ]);
-                const username = destruction.rows[0].username;
-                resolve(`This user has now been deleted: ${username}. Bye bye!👋`);
+                const destruction = await pgdb.query(`DELETE FROM users WHERE username = $1 RETURNING username;`, [ this.username ]);
+                resolve(`This user has now been deleted: ${destruction.username}. Bye bye!👋`);
             } catch (err) {
                 reject(`This user could not be deleted.`);
             }

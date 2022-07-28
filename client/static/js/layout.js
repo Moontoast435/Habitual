@@ -2,29 +2,23 @@
 const createMenuBtn = document.getElementById("createMenuBtn");
 const createMenu = document.getElementById("createMenu");
 
-const greetingBox = document.getElementById("greeting");
-const greetingMessage = document.createElement("h2");
+/* const greetingBox = document.getElementById("greeting");
+const greetingMessage = document.createElement("h2"); */
 
-/*const createHabitBtn = document
-  .getElementById("createPost")
-  .addEventListener("click", () => {
-    createMenu.style.display = "block";
-  }); */
+const createHabitForm = document.getElementById("createHabitForm");
 
-const createHabitForm = document.getElementById("createPost");
-
-/*createHabitForm.addEventListener("submit", (e) => {
+createHabitForm.addEventListener("submit", (e) => {
   createHabit(e);
-  window.location.reload();
-}); */
+  location.href = "/userdashboardindex.html";
+});
 
 const habitCollection = document.getElementById("greetingPost"); // will change depending on what id Aditi has set
 
 function displayAllHabits() {
   const habits = getAllHabits();
   for (let i = 0; i < habits.length; i++) {
-    const { name, frequency } = habits[i];
-    let id = i;
+    const { name, frequency, _id, dates } = habits[i];
+    let id = _id;
     const habitContainer = document.createElement("div");
     habitContainer.classList = "habit-container";
 
@@ -40,54 +34,107 @@ function displayAllHabits() {
     habitName.textContent = name;
     habitHeader.appendChild(habitName);
 
-    const habitInfo = document.createElement("p");
-    const frequencyInfo = document.createElement("p");
-    frequencyInfo.classList = "habit-information";
-    habitInfo.classList = "habit-information";
-    habitInfo.textContent = "tracking info";
-    frequencyInfo.textContent = frequency;
-    habitBody.appendChild(habitInfo);
-    habitBody.appendChild(frequencyInfo);
+    const startOfWeekBox = document.createElement("div");
+    startOfWeekBox.classList = "start-week-box";
+    startOfWeekBox.id = `startWeek + ${id}`;
+    let startOfWeekInfo = document.createElement("p");
+    startOfWeekInfo.classList = "start-week-info";
+    startOfWeekBox.appendChild(startOfWeekInfo);
+    habitBody.appendChild(startOfWeekBox);
+    startOfWeekBox.style.display = "none";
+
+    const endOfWeekBox = document.createElement("div");
+    endOfWeekBox.classList = "end-week-box";
+    endOfWeekBox.id = `endWeek + ${id}`;
+    let endOfWeekInfo = document.createElement("p");
+    endOfWeekInfo.classList = "end-week-info";
+    endOfWeekBox.appendChild(endOfWeekInfo);
+    habitBody.appendChild(endOfWeekBox);
+    endOfWeekBox.style.display = "none";
+
+    dates.forEach((entry) => {
+      const { date, complete } = entry;
+      let dateDisplay = document.createElement("div");
+      let dateInfo = document.createElement("p");
+      dateInfo.textContent = date;
+      dateDisplay.appendChild(dateInfo);
+      habitBody.appendChild(dateDisplay);
+      let completeBtn = document.createElement("button");
+      function switchComplete(complete) {
+        return !complete;
+      }
+      completeBtn.addEventListener("click", () => {
+        completeHabit(id, date, switchComplete(complete));
+      });
+    });
+
+    let currentDate;
 
     if (frequency.weekly === true) {
-      let startDate = new Date();
-      let;
+      currentDate = new Date();
+      const startOfTheWeek = new Date();
+      startOfTheWeek.setDate(
+        startOfTheWeek.getDate() - currentDate.getDay() + 1
+      );
+      startOfTheWeek.toLocaleDateString();
+      let shortStartOfWeek = startOfTheWeek.toString().slice(0, 10);
+
+      const endOfWeek = new Date();
+      endOfWeek.setDate(endOfWeek.getDate() - currentDate.getDay() + 7);
+      endOfWeek.toLocaleDateString();
+      let shortEndOfWeek = endOfWeek.toString().slice(0, 10);
+      currentDate = `${shortStartOfWeek} - ${shortEndOfWeek}`;
+    } else {
+      currentDate = new Date();
+      currentDate.toLocaleDateString();
+      currentDate.toString().slice(0, 10);
     }
-    const mon = document.createElement("button");
-    mon.classList = "habit-complete-button";
-    mon.id = `${id}`;
+    if (currentDate !== dates[-1]) {
+      updateDate(currentDate);
+    }
 
-    const tue = document.createElement("button");
-    tue.classList = "habit-complete-button";
-    tue.id = `${id}`;
+    /* let currentDate = new Date();
 
-    const wed = document.createElement("button");
-    wed.classList = "habit-complete-button";
-    wed.id = `${id}`;
+    const startOfTheWeek = new Date();
+    startOfTheWeek.setDate(startOfTheWeek.getDate() - currentDate + 1);
+    startOfTheWeek.toLocaleDateString();
+    let shortStartOfWeek = startOfTheWeek.toString().slice(0, 10);
+    startOfWeekBox.style.display = "block";
+    startOfWeekInfo.textContent = shortStartOfWeek; */
 
-    const thu = document.createElement("button");
-    thu.classList = "habit-complete-button";
-    thu.id = `${id}`;
+    /* const endOfWeek = new Date();
+    endOfWeek.setDate(endOfWeek.getDate() - currentDate + 1);
+    endOfWeek.setDate(endOfWeek.getDate() + numberOfWeeks * 6);
+    endOfWeek.toLocaleDateString();
+    let shortEndOfWeek = endOfWeek.toString().slice(0, 10);
+    endOfWeekBox.style.display = "block";
+    endOfWeekInfo.textContent = shortEndOfWeek; */
 
-    const fri = document.createElement("button");
-    fri.classList = "habit-complete-button";
-    fri.id = `${id}`;
+    const habitTrackerButtons = document.getElementsByClassName(
+      "habit-complete-day-button"
+    );
 
-    const sat = document.createElement("button");
-    sat.classList = "habit-complete-button";
-    sat.id = `${id}`;
+    let weekComplete = document.createElement("button");
+    weekComplete.classList = "week-complete-button";
 
-    const sun = document.createElement("button");
-    sun.classList = "habit-complete-button";
-    sun.id = `${id}`;
+    weekComplete.addEventListener("click", () => {
+      updateWeeklyTracking(name, numberOfWeeks);
+    });
+    // } else if (frequency.daily === true) {
+    //   let currentDate = new Date();
+    //   currentDate.toLocaleDateString();
+    //   currentDate.toString().slice(0, 10);
 
-    habitFooter.appendChild(mon);
-    habitFooter.appendChild(tue);
-    habitFooter.appendChild(wed);
-    habitFooter.appendChild(thu);
-    habitFooter.appendChild(fri);
-    habitFooter.appendChild(sat);
-    habitFooter.appendChild(sun);
+    //   let dailyCompleteButton = document.createElement("button");
+    //   dailyCompleteButton.textContent = currentDate;
+    //   dailyCompleteButton.addEventListener("click", () => {
+    //     updateDailyTracking(name, currentDate);
+    //     currentDate = new Date();
+    //   });
+
+    //   habitFooter.appendChild(dailyCompleteButton);
+    // } else {
+    //   return;
     // }
     habitContainer.appendChild(habitHeader);
     habitContainer.appendChild(habitBody);
@@ -96,5 +143,4 @@ function displayAllHabits() {
     habitCollection.appendChild(habitContainer);
   }
 }
-
 displayAllHabits();
