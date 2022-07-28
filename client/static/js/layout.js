@@ -52,6 +52,22 @@ function displayAllHabits() {
     habitBody.appendChild(endOfWeekBox);
     endOfWeekBox.style.display = "none";
 
+    dates.forEach((entry) => {
+      const { date, complete } = entry;
+      let dateDisplay = document.createElement("div");
+      let dateInfo = document.createElement("p");
+      dateInfo.textContent = date;
+      dateDisplay.appendChild(dateInfo);
+      habitBody.appendChild(dateDisplay);
+      let completeBtn = document.createElement("button");
+      function switchComplete(complete) {
+        return !complete;
+      }
+      completeBtn.addEventListener("click", () => {
+        completeHabit(id, date, switchComplete(complete));
+      });
+    });
+
     let currentDate;
 
     if (frequency.weekly === true) {
@@ -68,112 +84,58 @@ function displayAllHabits() {
       endOfWeek.toLocaleDateString();
       let shortEndOfWeek = endOfWeek.toString().slice(0, 10);
       currentDate = `${shortStartOfWeek} - ${shortEndOfWeek}`;
-      
-      dates.forEach((date) => {
-        let dateDisplay = document.createElement("div");
-        let dateInfo = document.createElement("p");
-        dateInfo.textContent = date;
-        dateDisplay.appendChild(dateInfo);
-        habitBody.appendChild(dateDisplay);
-
-        const mon = document.createElement("button");
-        mon.classList = `habit-complete-day-button ${id}`;
-
-        const tue = document.createElement("button");
-        tue.classList = `habit-complete-day-button ${id}`;
-
-        const wed = document.createElement("button");
-        wed.classList = `habit-complete-day-button ${id}`;
-
-        const thu = document.createElement("button");
-        thu.classList = `habit-complete-day-button ${id}`;
-
-        const fri = document.createElement("button");
-        fri.classList = `habit-complete-day-button ${id}`;
-
-        const sat = document.createElement("button");
-        sat.classList = `habit-complete-day-button ${id}`;
-
-        const sun = document.createElement("button");
-        sun.classList = `habit-complete-day-button ${id}`;
-
-      })
-      } else {
-        currentDate = new Date();
-        currentDate.toLocaleDateString();
-        currentDate.toString().slice(0, 10);
-      
-      }
-    
-      if (currentDate !== dates[-1]) {
-        updateDate(currentDate)
-      } else {
-        return
-      }
-         
-
-        Array.from(habitTrackerButtons).forEach((button) => {
-          button.addEventListener("click", () => {
-            button.style.backgroundColor = "purple";
-            updateDaysOfTheWeek(name, button.id);
-            button.disabled = true;
-          });
-        });
-
-        habitFooter.appendChild(mon);
-        habitFooter.appendChild(tue);
-        habitFooter.appendChild(wed);
-        habitFooter.appendChild(thu);
-        habitFooter.appendChild(fri);
-        habitFooter.appendChild(sat);
-        habitFooter.appendChild(sun);
-      })
-    
-      /* let currentDate = new Date();
-
-      const startOfTheWeek = new Date();
-      startOfTheWeek.setDate(startOfTheWeek.getDate() - currentDate + 1);
-      startOfTheWeek.toLocaleDateString();
-      let shortStartOfWeek = startOfTheWeek.toString().slice(0, 10);
-      startOfWeekBox.style.display = "block";
-      startOfWeekInfo.textContent = shortStartOfWeek; */
-
-      sendCurrentDate(name, shortStartOfWeek);
-
-      /* const endOfWeek = new Date();
-      endOfWeek.setDate(endOfWeek.getDate() - currentDate + 1);
-      endOfWeek.setDate(endOfWeek.getDate() + numberOfWeeks * 6);
-      endOfWeek.toLocaleDateString();
-      let shortEndOfWeek = endOfWeek.toString().slice(0, 10);
-      endOfWeekBox.style.display = "block";
-      endOfWeekInfo.textContent = shortEndOfWeek; */
-
-      const habitTrackerButtons = document.getElementsByClassName(
-        "habit-complete-day-button"
-      );
-
-      let weekComplete = document.createElement("button");
-      weekComplete.classList = "week-complete-button";
-
-      weekComplete.addEventListener("click", () => {
-        updateWeeklyTracking(name, numberOfWeeks);
-      });
-    } else if (frequency.daily === true) {
-      let currentDate = new Date();
+    } else {
+      currentDate = new Date();
       currentDate.toLocaleDateString();
       currentDate.toString().slice(0, 10);
-
-      let dailyCompleteButton = document.createElement("button");
-      dailyCompleteButton.textContent = currentDate;
-      dailyCompleteButton.addEventListener("click", () => {
-        updateDailyTracking(name, currentDate);
-        currentDate = new Date();
-      });
-
-      habitFooter.appendChild(dailyCompleteButton);
-    } else {
-      return;
     }
+    if (currentDate !== dates[-1]) {
+      updateDate(currentDate);
+    }
+
+    /* let currentDate = new Date();
+
+    const startOfTheWeek = new Date();
+    startOfTheWeek.setDate(startOfTheWeek.getDate() - currentDate + 1);
+    startOfTheWeek.toLocaleDateString();
+    let shortStartOfWeek = startOfTheWeek.toString().slice(0, 10);
+    startOfWeekBox.style.display = "block";
+    startOfWeekInfo.textContent = shortStartOfWeek; */
+
+    /* const endOfWeek = new Date();
+    endOfWeek.setDate(endOfWeek.getDate() - currentDate + 1);
+    endOfWeek.setDate(endOfWeek.getDate() + numberOfWeeks * 6);
+    endOfWeek.toLocaleDateString();
+    let shortEndOfWeek = endOfWeek.toString().slice(0, 10);
+    endOfWeekBox.style.display = "block";
+    endOfWeekInfo.textContent = shortEndOfWeek; */
+
+    const habitTrackerButtons = document.getElementsByClassName(
+      "habit-complete-day-button"
+    );
+
+    let weekComplete = document.createElement("button");
+    weekComplete.classList = "week-complete-button";
+
+    weekComplete.addEventListener("click", () => {
+      updateWeeklyTracking(name, numberOfWeeks);
+    });
+    // } else if (frequency.daily === true) {
+    //   let currentDate = new Date();
+    //   currentDate.toLocaleDateString();
+    //   currentDate.toString().slice(0, 10);
+
+    //   let dailyCompleteButton = document.createElement("button");
+    //   dailyCompleteButton.textContent = currentDate;
+    //   dailyCompleteButton.addEventListener("click", () => {
+    //     updateDailyTracking(name, currentDate);
+    //     currentDate = new Date();
+    //   });
+
+    //   habitFooter.appendChild(dailyCompleteButton);
+    // } else {
+    //   return;
+    // }
     habitContainer.appendChild(habitHeader);
     habitContainer.appendChild(habitBody);
     habitContainer.appendChild(habitFooter);

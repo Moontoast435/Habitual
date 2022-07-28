@@ -85,76 +85,6 @@ async function getTrackingInfo(id) {
 }*/
 
 // to do
-async function updateWeeklyTracking(name, week) {
-  try {
-    const options = {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ week }),
-    };
-
-    const response = await fetch(
-      `${API_URL}/habits/${username}/${name}`,
-      options
-    );
-
-    numberOfWeeks += 1;
-    const { err } = await response.json();
-    if (err) {
-      throw Error(err);
-    } else {
-      window.location.reload();
-    }
-  } catch (err) {
-    console.warn(err);
-  }
-}
-
-async function sendCurrentWeekDate(name, startOfTheWeek) {
-  try {
-    const options = {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ startOfTheWeek }),
-    };
-
-    const response = await fetch(
-      `${API_URL}/habits/${username}/${name}`,
-      options
-    );
-    const { err } = await response.json();
-    if (err) {
-      throw Error(err);
-    } else {
-      window.location.reload();
-    }
-  } catch (err) {
-    console.warn(err);
-  }
-}
-async function sendCurrentDate(name, currentDate, frequency) {
-  try {
-    const options = {
-      method: "PATCH",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ frequency, currentDate, complete: false }),
-    };
-
-    const response = await fetch(
-      `${API_URL}/habits/${username}/${name}`,
-      options
-    );
-    const { err } = await response.json();
-    if (err) {
-      throw Error(err);
-    } else {
-      window.location.reload();
-    }
-  } catch (err) {
-    console.warn(err);
-  }
-}
-
 async function updateDate(objectId, date) {
   const username = localStorage.getItem("username");
   try {
@@ -180,13 +110,13 @@ async function updateDate(objectId, date) {
   }
 }
 
-async function completeHabit(objectId, date) {
+async function completeHabit(objectId, date, completeValue) {
   const username = localStorage.getItem("username");
   try {
     const options = {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ complete: true }),
+      body: JSON.stringify({ complete: completeValue, date }),
     };
 
     const response = await fetch(
@@ -203,8 +133,4 @@ async function completeHabit(objectId, date) {
   } catch (err) {
     console.warn(err);
   }
-}
-
-async function compareDates() {
-  let curren;
 }
