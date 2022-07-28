@@ -6,7 +6,7 @@ const createMenu = document.getElementById("createMenu");
 const greetingMessage = document.createElement("h2"); */
 
 const createHabitForm = document.getElementById("createHabitForm");
-
+console.log(createHabitForm);
 createHabitForm.addEventListener("submit", (e) => {
   createHabit(e);
   location.href = "/userdashboardindex.html";
@@ -33,14 +33,6 @@ function displayAllHabits() {
     habitName.classList = "habit-name";
     habitName.textContent = name;
     habitHeader.appendChild(habitName);
-
-    const dateOfTheWeekBox = document.createElement("div");
-    dateOfTheWeekBox.classList = "start-week-box";
-    dateOfTheWeekBox.id = `startWeek + ${id}`;
-    let DateInfo = document.createElement("p");
-    DateInfo.classList = "start-week-info";
-    dateOfTheWeekBox.appendChild(DateInfo);
-    habitBody.appendChild(dateOfTheWeekBox);
 
     dates.forEach((entry) => {
       const { date, complete } = entry;

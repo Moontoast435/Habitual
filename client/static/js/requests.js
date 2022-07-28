@@ -3,8 +3,15 @@ let username = localStorage.getItem("username");
 
 async function getAllHabits() {
   try {
-    const response = await fetch(`${API_URL2}/habits/${username}`);
+    const options = {
+      headers: new Headers({ Authorization: localStorage.getItem("token") }),
+    };
+    const response = await fetch(`${API_URL2}/habits/${username}`, options);
     const data = await response.json();
+    if (data.err) {
+      console.warn(data.err);
+      logout();
+    }
     return data;
   } catch (err) {
     console.warn(err);
@@ -12,7 +19,7 @@ async function getAllHabits() {
 }
 
 async function createHabit(e) {
-  e.preventDefault();
+  e.preventDefault;
   let habitName = document.getElementById("habitName").value;
   let changedHabitName = habitName.replaceAll(" ", "-");
   let dailyOrWeekly = document.getElementById("frequency").value;
@@ -95,7 +102,7 @@ async function updateDate(objectId, date) {
     };
 
     const response = await fetch(
-      `${API_URL}/habits/${username}/${objectId}`,
+      `${API_URL2}/habits/${username}/${objectId}`,
       options
     );
 
@@ -120,7 +127,7 @@ async function completeHabit(objectId, date, completeValue) {
     };
 
     const response = await fetch(
-      `${API_URL}/habits/${username}/${objectId}/complete`,
+      `${API_URL2}/habits/${username}/${objectId}/complete`,
       options
     );
 
