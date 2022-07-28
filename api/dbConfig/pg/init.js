@@ -6,4 +6,4 @@ const pool = new Pool({
     ssl: true
 });
 
-module.exports = client;
+module.exports = pool;
