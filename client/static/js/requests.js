@@ -18,12 +18,30 @@ async function createHabit(e) {
   let dailyOrWeekly = document.getElementById("frequency").value;
   let daily;
   let weekly;
-  if (dailyOrWeekly === "1") {
+  let date;
+  if (dailyOrWeekly === "daily") {
     daily = true;
     weekly = false;
+    date = new Date();
+    date.toLocaleDateString();
+    date.toString().slice(0, 10);
   } else {
+    let currentDate = new Date();
+    currentDate.toLocaleDateString();
+    currentDate.toString().slice(0, 10);
     weekly = true;
     daily = false;
+    const startOfTheWeek = new Date();
+    startOfTheWeek.setDate(startOfTheWeek.getDate() - currentDate + 1);
+    startOfTheWeek.toLocaleDateString();
+    let shortStartOfWeek = startOfTheWeek.toString().slice(0, 10);
+
+    const endOfWeek = new Date();
+    endOfWeek.setDate(endOfWeek.getDate() - currentDate + 7);
+    endOfWeek.toLocaleDateString();
+    let shortEndOfWeek = endOfWeek.toString().slice(0, 10);
+
+    date = `${shortStartOfWeek} - ${shortEndOfWeek}`;
   }
   try {
     const options = {
@@ -32,6 +50,7 @@ async function createHabit(e) {
       body: JSON.stringify({
         habit: changedHabitName,
         frequency: { daily, weekly },
+        dates: [{ date }],
       }),
     };
 
@@ -115,13 +134,12 @@ async function sendCurrentWeekDate(name, startOfTheWeek) {
     console.warn(err);
   }
 }
-async function sendCurrentDate(name, currentDate) {
-  let currentDate = new Date();
+async function sendCurrentDate(name, currentDate, frequency) {
   try {
     const options = {
-      method: "POST",
+      method: "PATCH",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ currentDate }),
+      body: JSON.stringify({ frequency, currentDate, complete: false }),
     };
 
     const response = await fetch(
@@ -142,7 +160,7 @@ async function sendCurrentDate(name, currentDate) {
 async function updateDaysOfTheWeek(name, day) {
   try {
     const options = {
-      method: "POST",
+      method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ day }),
     };
@@ -166,7 +184,7 @@ async function updateDaysOfTheWeek(name, day) {
 async function updateDailyTracking(name, day) {
   try {
     const options = {
-      method: "POST",
+      method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ day }),
     };
@@ -186,3 +204,5 @@ async function updateDailyTracking(name, day) {
     console.warn(err);
   }
 }
+
+//async function

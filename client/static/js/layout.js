@@ -17,7 +17,7 @@ const habitCollection = document.getElementById("greetingPost"); // will change 
 function displayAllHabits() {
   const habits = getAllHabits();
   for (let i = 0; i < habits.length; i++) {
-    const { name, frequency, _id } = habits[i];
+    const { name, frequency, _id, dates } = habits[i];
     let id = _id;
     const habitContainer = document.createElement("div");
     habitContainer.classList = "habit-container";
@@ -55,52 +55,68 @@ function displayAllHabits() {
     let numberOfWeeks = 1;
 
     if (frequency.weekly === true) {
-      let currentDate = new Date();
+      dates.forEach((date) => {
+        let dateDisplay = document.createElement("div");
+        let dateInfo = document.createElement("p");
+        dateInfo.textContent = date;
+        dateDisplay.appendChild(dateInfo);
+        habitBody.appendChild(dateDisplay);
+
+        const mon = document.createElement("button");
+        mon.classList = `habit-complete-day-button ${id}`;
+
+        const tue = document.createElement("button");
+        tue.classList = `habit-complete-day-button ${id}`;
+
+        const wed = document.createElement("button");
+        wed.classList = `habit-complete-day-button ${id}`;
+
+        const thu = document.createElement("button");
+        thu.classList = `habit-complete-day-button ${id}`;
+
+        const fri = document.createElement("button");
+        fri.classList = `habit-complete-day-button ${id}`;
+
+        const sat = document.createElement("button");
+        sat.classList = `habit-complete-day-button ${id}`;
+
+        const sun = document.createElement("button");
+        sun.classList = `habit-complete-day-button ${id}`;
+
+        Array.from(habitTrackerButtons).forEach((button) => {
+          button.addEventListener("click", () => {
+            button.style.backgroundColor = "purple";
+            updateDaysOfTheWeek(name, button.id);
+            button.disabled = true;
+          });
+        });
+
+        habitFooter.appendChild(mon);
+        habitFooter.appendChild(tue);
+        habitFooter.appendChild(wed);
+        habitFooter.appendChild(thu);
+        habitFooter.appendChild(fri);
+        habitFooter.appendChild(sat);
+        habitFooter.appendChild(sun);
+      });
+      /* let currentDate = new Date();
 
       const startOfTheWeek = new Date();
       startOfTheWeek.setDate(startOfTheWeek.getDate() - currentDate + 1);
       startOfTheWeek.toLocaleDateString();
       let shortStartOfWeek = startOfTheWeek.toString().slice(0, 10);
       startOfWeekBox.style.display = "block";
-      startOfWeekInfo.textContent = shortStartOfWeek;
+      startOfWeekInfo.textContent = shortStartOfWeek; */
 
       sendCurrentDate(name, shortStartOfWeek);
 
-      const endOfWeek = new Date();
+      /* const endOfWeek = new Date();
       endOfWeek.setDate(endOfWeek.getDate() - currentDate + 1);
       endOfWeek.setDate(endOfWeek.getDate() + numberOfWeeks * 6);
       endOfWeek.toLocaleDateString();
       let shortEndOfWeek = endOfWeek.toString().slice(0, 10);
       endOfWeekBox.style.display = "block";
-      endOfWeekInfo.textContent = shortEndOfWeek;
-
-      const mon = document.createElement("button");
-      mon.classList = "habit-complete-day-button";
-      mon.id = `mon + ${id}`;
-
-      const tue = document.createElement("button");
-      tue.classList = "habit-complete-day-button";
-      tue.id = `tue + ${id}`;
-
-      const wed = document.createElement("button");
-      wed.classList = "habit-complete-day-button";
-      wed.id = `wed + ${id}`;
-
-      const thu = document.createElement("button");
-      thu.classList = "habit-complete-day-button";
-      thu.id = `thu + ${id}`;
-
-      const fri = document.createElement("button");
-      fri.classList = "habit-complete-day-button";
-      fri.id = `fri + ${id}`;
-
-      const sat = document.createElement("button");
-      sat.classList = "habit-complete-day-button";
-      sat.id = `sat + ${id}`;
-
-      const sun = document.createElement("button");
-      sun.classList = "habit-complete-day-button";
-      sun.id = `sun + ${id}`;
+      endOfWeekInfo.textContent = shortEndOfWeek; */
 
       const habitTrackerButtons = document.getElementsByClassName(
         "habit-complete-day-button"
@@ -112,22 +128,6 @@ function displayAllHabits() {
       weekComplete.addEventListener("click", () => {
         updateWeeklyTracking(name, numberOfWeeks);
       });
-
-      Array.from(habitTrackerButtons).forEach((button) => {
-        button.addEventListener("click", () => {
-          button.style.backgroundColor = "purple";
-          updateDaysOfTheWeek(name, button.id);
-          button.disabled = true;
-        });
-      });
-
-      habitFooter.appendChild(mon);
-      habitFooter.appendChild(tue);
-      habitFooter.appendChild(wed);
-      habitFooter.appendChild(thu);
-      habitFooter.appendChild(fri);
-      habitFooter.appendChild(sat);
-      habitFooter.appendChild(sun);
     } else if (frequency.daily === true) {
       let currentDate = new Date();
       currentDate.toLocaleDateString();
