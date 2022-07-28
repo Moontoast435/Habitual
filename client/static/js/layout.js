@@ -34,23 +34,13 @@ function displayAllHabits() {
     habitName.textContent = name;
     habitHeader.appendChild(habitName);
 
-    const startOfWeekBox = document.createElement("div");
-    startOfWeekBox.classList = "start-week-box";
-    startOfWeekBox.id = `startWeek + ${id}`;
-    let startOfWeekInfo = document.createElement("p");
-    startOfWeekInfo.classList = "start-week-info";
-    startOfWeekBox.appendChild(startOfWeekInfo);
-    habitBody.appendChild(startOfWeekBox);
-    startOfWeekBox.style.display = "none";
-
-    const endOfWeekBox = document.createElement("div");
-    endOfWeekBox.classList = "end-week-box";
-    endOfWeekBox.id = `endWeek + ${id}`;
-    let endOfWeekInfo = document.createElement("p");
-    endOfWeekInfo.classList = "end-week-info";
-    endOfWeekBox.appendChild(endOfWeekInfo);
-    habitBody.appendChild(endOfWeekBox);
-    endOfWeekBox.style.display = "none";
+    const dateOfTheWeekBox = document.createElement("div");
+    dateOfTheWeekBox.classList = "start-week-box";
+    dateOfTheWeekBox.id = `startWeek + ${id}`;
+    let DateInfo = document.createElement("p");
+    DateInfo.classList = "start-week-info";
+    dateOfTheWeekBox.appendChild(DateInfo);
+    habitBody.appendChild(dateOfTheWeekBox);
 
     dates.forEach((entry) => {
       const { date, complete } = entry;
@@ -109,10 +99,6 @@ function displayAllHabits() {
     let shortEndOfWeek = endOfWeek.toString().slice(0, 10);
     endOfWeekBox.style.display = "block";
     endOfWeekInfo.textContent = shortEndOfWeek; */
-
-    const habitTrackerButtons = document.getElementsByClassName(
-      "habit-complete-day-button"
-    );
 
     let weekComplete = document.createElement("button");
     weekComplete.classList = "week-complete-button";

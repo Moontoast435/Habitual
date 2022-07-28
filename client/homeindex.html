@@ -36,104 +36,78 @@
   </head>
   <body>
     <div class="layout">
-          <a class="header" href="#0"><i class="fa fa-bars"></i>
-            <div class="header-user"><i class="fas fa-user-circle icon"></i>Hello! (username)</div>
-          </a>
+      <a class="header" href="#0"
+        ><i class="fa fa-bars"></i>
+        <div class="header-user">
+          <i class="fas fa-user-circle icon"></i>Hello! (username)
+        </div>
+      </a>
       <div class="sidebar">
-            <ul>
-              <li> <a class="sidebar-list-item" href="#0"> <i class="fas fa-home icon"></i><em>Dashboard</em></a></li>
-              <li> <a class="sidebar-list-item" href="/client/userdashboardindex.html"> <i class="fas fa-user icon"></i><em>Habits</em></a></li>
-              <li> <a class="sidebar-list-item" href="#0"> <i class="fas fa-comments icon"></i><em>Feedback</em></a></li>
-              <li> <a class="sidebar-list-item" href="#0"> <i class="fas fa-lightbulb icon"></i><em>Suggestions</em></a>
-              </li>
-            </ul>
-          </div>
-    
-        <main class="content">
-            <div class="main-header">
-             <div class="main-title">
-                <h1>Create Habit</h1>
-             </div>
-            <div class="main-form">
-              <form  id="createHabitForm">
-                <div class="habits">
-                  <select>
-                    <option id="habitTitle" value="0">Habit Title:</option>
-                    <option id="habitName" value="Reading">Reading</option>
-                    <option id="habitName" value="Cycling">Cycling</option>
-                    <option id="habitName" value="Walk">Walk</option>
-                    <option id="habitName" value="Yoga">Yoga</option>
-                  </select>
-                </div>
-                      <input type="text" id="customTitle" onfocus="this.value=''" value="Custom Your Title">
-                  <div class="repetitions">
-                    <select>
-                      <option id="habitRepetition" value="0">Frequency:</option>
-                      <option id="frequency" value="1">Daily</option>
-                      <option id="frequency" value="2">Weekly</option>
-                    </select>
-                  </div>
-                  <a href="/client/userdashboardindex.html"><input type="submit" id="createPost" value="Habitualize!" class="button" ></a>
-              </form>
-            </div>
-          </div>
-        </main>
+        <ul>
+          <li>
+            <a class="sidebar-list-item" href="#0">
+              <i class="fas fa-home icon"></i><em>Dashboard</em></a
+            >
+          </li>
+          <li>
+            <a class="sidebar-list-item" href="./userdashboardindex.html">
+              <i class="fas fa-user icon"></i><em>Habits</em></a
+            >
+          </li>
+          <li>
+            <a class="sidebar-list-item" href="#0">
+              <i class="fas fa-comments icon"></i><em>Feedback</em></a
+            >
+          </li>
+          <li>
+            <a class="sidebar-list-item" href="#0">
+              <i class="fas fa-lightbulb icon"></i><em>Suggestions</em></a
+            >
+          </li>
+        </ul>
       </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+      <main class="content">
+        <div class="main-header">
+          <div class="main-title">
+            <h1>Create Habit</h1>
+          </div>
+          <div class="main-form">
+            <form id="createHabitForm">
+              <div class="habits">
+                <select>
+                  <option id="habitTitle" value="0">Habit Title:</option>
+                  <option id="habitName" value="Reading">Reading</option>
+                  <option id="habitName" value="Cycling">Cycling</option>
+                  <option id="habitName" value="Walk">Walk</option>
+                  <option id="habitName" value="Yoga">Yoga</option>
+                </select>
+              </div>
+              <input
+                type="text"
+                id="customTitle"
+                onfocus="this.value=''"
+                value="Custom Your Title"
+              />
+              <div class="repetitions">
+                <select>
+                  <option id="habitRepetition" value="0">Frequency:</option>
+                  <option id="frequency" value="1">Daily</option>
+                  <option id="frequency" value="2">Weekly</option>
+                </select>
+              </div>
+              <a href="/client/userdashboardindex.html"
+                ><input
+                  type="submit"
+                  id="createPost"
+                  value="Habitualize!"
+                  class="button"
+              /></a>
+            </form>
+          </div>
+        </div>
+      </main>
+    </div>
 
     <!-- <div id="title">
       <!-- Nav Bar 
@@ -171,7 +145,7 @@
             <h2 class="formHeading">Browse activity</h2><br> 
         </div> -->
 
-        <!--opt 2-
+    <!--opt 2-
 
         <div class="container">
           <div class="left">
