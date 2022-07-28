@@ -17,10 +17,7 @@
       rel="stylesheet"
     />
     <!--font Awesome-->
-    <script
-      src="https://kit.fontawesome.com/4733042abc.js"
-      crossorigin="anonymous"
-    ></script>
+    <script src="https://kit.fontawesome.com/02eb9dedd0.js" crossorigin="anonymous"></script>
 
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <!--google fonts-->
@@ -36,6 +33,7 @@
   </head>
   <body>
     <div class="layout">
+<<<<<<< HEAD
       <a class="header" href="#0"
         ><i class="fa fa-bars"></i>
         <div class="header-user">
@@ -65,6 +63,53 @@
             >
           </li>
         </ul>
+=======
+          <a class="header" href="#0"><i class="fa fa-bars"></i>
+            <div class="header-user"><i class="fas fa-user-circle icon"></i>Hello! <span id="userName"></span></div>
+          </a>
+      <div class="sidebar">
+            <ul>
+              <li> <a class="sidebar-list-item" href="#0"><i class="fa-solid fa-plus"></i><em>Create New Habit</em></a></li>
+              <li> <a class="sidebar-list-item" href="/client/userdashboardindex.html"> <i class="fas fa-home icon"></i><em>Dashboard</em></a></li>
+              <li> <a class="sidebar-list-item" href="#0"> <i class="fas fa-comments icon"></i><em>Feedback</em></a></li>
+              <li> <a class="sidebar-list-item" href="#0"> <i class="fas fa-lightbulb icon"></i><em>Suggestions</em></a>
+              </li>
+            </ul>
+          </div>
+    
+        <main class="content">
+            <div class="main-header">
+             <div class="main-title">
+                <h1>Create Habit</h1>
+             </div>
+            <div class="main-form">
+              <form  id="createHabitForm">
+                <div class="habits">
+                  <select>
+                    <option id="habitTitle" value="0">Habit Title:</option>
+                    <option id="habitName" value="Reading">Reading</option>
+                    <option id="habitName" value="Cycling">Cycling</option>
+                    <option id="habitName" value="Walk">Walk</option>
+                    <option id="habitName" value="Yoga">Yoga</option>
+                  </select>
+                </div>
+                      <input type="text" id="customTitle" onfocus="this.value=''" value="Custom Your Title">
+                  <div class="repetitions">
+                    <select>
+                      <option id="habitRepetition" value="0">Frequency:</option>
+                      <option id="frequency" value="1">Daily</option>
+                      <option id="frequency" value="2">Weekly</option>
+                    </select>
+  
+<!--backend-->
+
+                  <button type="submit" id="createPost" class="button" value="Habitualize!"><a href="/client/userdashboardindex.html">Habitualize! </a></button>
+                  
+              </form>
+            </div>
+          </div>
+        </main>
+>>>>>>> fed9c9cec73f73049751e92e22bbbf72961b6864
       </div>
 
       <main class="content">

@@ -5,11 +5,15 @@ const habitsController = require('../controllers/habits')
 
 router.get('/:username', verifyToken, habitsController.showAllHabits)
 
-router.get('/:username/:name', verifyToken, habitsController.showHabit)
+router.get('/:username/:objectId', verifyToken, habitsController.showHabit)
+
+router.patch('/:username/:objectId', verifyToken, habitsController.updateHabit)
+
+router.patch('/:username/:objectId/complete', verifyToken, habitsController.completeHabit)
 
 router.post('/:username/new', verifyToken, habitsController.addNewHabit)
 
-router.delete('/:username/:name', verifyToken, habitsController.deleteHabit)
+router.delete('/:username/:objectId', verifyToken, habitsController.deleteHabit)
 
 module.exports = router;
 
