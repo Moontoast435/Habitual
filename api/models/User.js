@@ -26,7 +26,6 @@ class User {
                     `INSERT INTO users (username, hashed_password) VALUES ($1, $2) RETURNING username;`,
                     [username, password]
                 );
-                console.log(userData);
                 let newUser = new User(userData.rows[0]);
                 resolve(newUser);
             } catch (err) {
@@ -39,6 +38,7 @@ class User {
         return new Promise(async (resolve, reject) => {
             try {
                 let userData = await pgdb.query(`SELECT * FROM users WHERE username = $1;`, [username]);
+                console.log(userData)
                 let user = new User(userData.rows[0]);
                 resolve(user);
             } catch (err) {
