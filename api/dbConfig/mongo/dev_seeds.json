@@ -1,11 +1,6 @@
 [
     {
         "name": "eat breakfast",
-        "dates": [
-            {
-                "complete": false
-            }
-        ],
         "frequency": {
             "daily": false,
             "weekly": true
@@ -14,11 +9,6 @@
     },
     {
         "name": "eat breakfast",
-        "dates": [
-            {
-                "complete": false
-            }
-        ],
         "frequency": {
             "daily": false,
             "weekly": true
