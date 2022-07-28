@@ -9,7 +9,7 @@ const createHabitForm = document.getElementById("createHabitForm");
 
 createHabitForm.addEventListener("submit", (e) => {
   createHabit(e);
-  window.location.reload();
+  location.href = "/userdashboardindex.html";
 });
 
 const habitCollection = document.getElementById("greetingPost"); // will change depending on what id Aditi has set
@@ -17,8 +17,8 @@ const habitCollection = document.getElementById("greetingPost"); // will change 
 function displayAllHabits() {
   const habits = getAllHabits();
   for (let i = 0; i < habits.length; i++) {
-    const { name, frequency } = habits[i];
-    let id = i;
+    const { name, frequency, _id } = habits[i];
+    let id = _id;
     const habitContainer = document.createElement("div");
     habitContainer.classList = "habit-container";
 
