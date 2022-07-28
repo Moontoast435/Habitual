@@ -128,12 +128,6 @@ function displayAllHabits() {
       habitFooter.appendChild(fri);
       habitFooter.appendChild(sat);
       habitFooter.appendChild(sun);
-
-      habitContainer.appendChild(habitHeader);
-      habitContainer.appendChild(habitBody);
-      habitContainer.appendChild(habitFooter);
-
-      habitCollection.appendChild(habitContainer);
     } else if (frequency.daily === true) {
       let currentDate = new Date();
       currentDate.toLocaleDateString();
@@ -145,9 +139,16 @@ function displayAllHabits() {
         updateDailyTracking(name, currentDate);
         currentDate = new Date();
       });
+
+      habitFooter.appendChild(dailyCompleteButton);
     } else {
       return;
     }
+    habitContainer.appendChild(habitHeader);
+    habitContainer.appendChild(habitBody);
+    habitContainer.appendChild(habitFooter);
+
+    habitCollection.appendChild(habitContainer);
   }
 }
 displayAllHabits();
