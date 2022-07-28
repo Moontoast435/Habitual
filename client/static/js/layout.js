@@ -2,21 +2,15 @@
 const createMenuBtn = document.getElementById("createMenuBtn");
 const createMenu = document.getElementById("createMenu");
 
-const greetingBox = document.getElementById("greeting");
-const greetingMessage = document.createElement("h2");
+/* const greetingBox = document.getElementById("greeting");
+const greetingMessage = document.createElement("h2"); */
 
-/*const createHabitBtn = document
-  .getElementById("createPost")
-  .addEventListener("click", () => {
-    createMenu.style.display = "block";
-  }); */
+const createHabitForm = document.getElementById("createHabitForm");
 
-const createHabitForm = document.getElementById("createPost");
-
-/*createHabitForm.addEventListener("submit", (e) => {
+createHabitForm.addEventListener("submit", (e) => {
   createHabit(e);
   window.location.reload();
-}); */
+});
 
 const habitCollection = document.getElementById("greetingPost"); // will change depending on what id Aditi has set
 

@@ -18,7 +18,7 @@ async function createHabit(e) {
   let dailyOrWeekly = document.getElementById("frequency").value;
   let daily;
   let weekly;
-  if (dailyOrWeekly === "daily") {
+  if (dailyOrWeekly === "1") {
     daily = true;
     weekly = false;
   } else {
