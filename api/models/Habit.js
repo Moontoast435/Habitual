@@ -2,51 +2,49 @@ const mongoose = require("mongoose");
 const connection = require("../dbConfig/mongo/connection");
 
 const habitSchema = new mongoose.Schema({
-  name: {
-    type: String,
-    required: true,
-  },
-  dates: [
-    {
-      day: {
+    name: {
         type: String,
-        default: () => {
-          const now = new Date();
-          const options = {
-            weekday: "long",
-          };
+        required: true,
+    },
+    dates: [
+        {
+            day: {
+                type: String,
+                default: () => {
+                    const now = new Date();
+                    const options = {
+                        weekday: "long",
+                    };
 
                     return new Intl.DateTimeFormat("en-GB", options).format(now);
                 },
             },
+            date: {
+                type: String,
+                default: () => {
+                    const now = new Date();
+                    const options = {
+                        day: "numeric",
+                        month: "numeric",
+                        year: "numeric",
+                    };
+
+                    return new Intl.DateTimeFormat("en-GB", options).format(now);
+                },
+               
+            },
             complete: false,
         },
-      },
-      date: {
-        type: String,
-        default: () => {
-          const now = new Date();
-          const options = {
-            day: "numeric",
-            month: "numeric",
-            year: "numeric",
-          };
-
-          return new Intl.DateTimeFormat("en-GB", options).format(now);
-        },
-      },
-      complete: Boolean,
+    ],
+    frequency: {
+        daily: Boolean,
+        weekly: Boolean,
     },
-  ],
-  frequency: {
-    daily: Boolean,
-    weekly: Boolean,
-  },
-  createdAt: {
-    type: String,
-    default: new Date(),
-  },
-  userID: Number,
+    createdAt: {
+        type: String,
+        default: new Date(),
+    },
+    userID: Number,
 });
 
 const Habit = mongoose.model("Habit", habitSchema);
