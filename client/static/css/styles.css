@@ -107,10 +107,10 @@ padding: 0 0 4.5rem;
 
 .trackerGify{
   
-    padding: 0% 2%;
+    padding: 3% 5%;
     width: 100%;
-    height: auto;
-    transform: rotate(5deg);
+    height: 100%;
+    transform: rotate(10deg);
     position: relative;
     display: flex;
     
