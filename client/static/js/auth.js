@@ -67,3 +67,6 @@ function currentUser() {
   const username = localStorage.getItem("username");
   return username;
 }
+
+const userNameDisplay = document.getElementById("userName");
+userNameDisplay.textContent = currentUser();

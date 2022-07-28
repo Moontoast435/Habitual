@@ -70,6 +70,8 @@ function displayAllHabits() {
       startOfWeekBox.style.display = "block";
       startOfWeekInfo.textContent = shortStartOfWeek;
 
+      sendCurrentDate(name, shortStartOfWeek);
+
       const endOfWeek = new Date();
       endOfWeek.setDate(endOfWeek.getDate() - currentDate + 1);
       endOfWeek.setDate(endOfWeek.getDate() + numberOfWeeks * 6);
@@ -109,27 +111,49 @@ function displayAllHabits() {
       const habitTrackerButtons = document.getElementsByClassName(
         "habit-complete-day-button"
       );
+
+      let weekComplete = document.createElement("button");
+      weekComplete.classList = "week-complete-button";
+
+      weekComplete.addEventListener("click", () => {
+        updateWeeklyTracking(name, numberOfWeeks);
+      });
+
       Array.from(habitTrackerButtons).forEach((button) => {
         button.addEventListener("click", () => {
-          postTrackingInformation(name, button.id);
           button.style.backgroundColor = "purple";
+          updateDaysOfTheWeek(name, button.id);
+          button.disabled = true;
         });
       });
+
+      habitFooter.appendChild(mon);
+      habitFooter.appendChild(tue);
+      habitFooter.appendChild(wed);
+      habitFooter.appendChild(thu);
+      habitFooter.appendChild(fri);
+      habitFooter.appendChild(sat);
+      habitFooter.appendChild(sun);
+
+      habitContainer.appendChild(habitHeader);
+      habitContainer.appendChild(habitBody);
+      habitContainer.appendChild(habitFooter);
+
+      habitCollection.appendChild(habitContainer);
+    } else if (frequency.daily === true) {
+      let currentDate = new Date();
+      currentDate.toLocaleDateString();
+      currentDate.toString().slice(0, 10);
+
+      let dailyCompleteButton = document.createElement("button");
+      dailyCompleteButton.textContent = currentDate;
+      dailyCompleteButton.addEventListener("click", () => {
+        updateDailyTracking(name, currentDate);
+        currentDate = new Date();
+      });
+    } else {
+      return;
     }
-    habitFooter.appendChild(mon);
-    habitFooter.appendChild(tue);
-    habitFooter.appendChild(wed);
-    habitFooter.appendChild(thu);
-    habitFooter.appendChild(fri);
-    habitFooter.appendChild(sat);
-    habitFooter.appendChild(sun);
-
-    habitContainer.appendChild(habitHeader);
-    habitContainer.appendChild(habitBody);
-    habitContainer.appendChild(habitFooter);
-
-    habitCollection.appendChild(habitContainer);
   }
 }
-
 displayAllHabits();
