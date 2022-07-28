@@ -10,7 +10,7 @@ class User {
     static get all() {
         return new Promise(async (resolve, reject) => {
             try {
-                let usersData = await pgdb.query(`SELECT * FROM users;`);
+                let usersData = await pgdb.query(`SELECT * FROM users;`, () => pgdb.end());
                 let users = usersData.rows.map((user) => new User(user));
                 resolve(users);
             } catch (err) {
@@ -24,7 +24,7 @@ class User {
             try {
                 let userData = await pgdb.query(
                     `INSERT INTO users (username, hashed_password) VALUES ($1, $2) RETURNING username;`,
-                    [username, password]
+                    [username, password], () => pgdb.end()
                 );
                 let newUser = new User(userData.rows[0]);
                 resolve(newUser);
@@ -37,7 +37,7 @@ class User {
     static findByUsername(username) {
         return new Promise(async (resolve, reject) => {
             try {
-                let userData = await pgdb.query(`SELECT * FROM users WHERE username = $1;`, [username]);
+                let userData = await pgdb.query(`SELECT * FROM users WHERE username = $1;`, [username], () => pgdb.end());
                 let user = new User(userData.rows[0]);
                 resolve(user);
             } catch (err) {
@@ -49,7 +49,7 @@ class User {
     destroy() {
         return new Promise(async (resolve, reject) => {
             try {
-                const destruction = await pgdb.query(`DELETE FROM users WHERE username = $1 RETURNING username;`, [ this.username ]);
+                const destruction = await pgdb.query(`DELETE FROM users WHERE username = $1 RETURNING username;`, [ this.username ], () => pgdb.end());
                 resolve(`This user has now been deleted: ${destruction.username}. Bye bye!👋`);
             } catch (err) {
                 reject(`This user could not be deleted.`);
