@@ -26,6 +26,7 @@ class User {
                     `INSERT INTO users (username, hashed_password) VALUES ($1, $2) RETURNING username;`,
                     [username, password], () => pgdb.end()
                 );
+                console.log(userData);
                 let newUser = new User(userData.rows[0]);
                 resolve(newUser);
             } catch (err) {
