@@ -35,9 +35,14 @@ async function addNewHabit(req, res) {
     try {
         const user = await User.findByUsername(req.params.username);
         const userId = user.id;
-        const habit = await Habit.create({name: req.body.habit, dates: req.body.dates, frequency: req.body.frequency, userID: userId})// need to change these depending on params in stefans create method in habit model
+        const habit = await Habit.create({
+            name: req.body.habit,
+            dates: req.body.dates,
+            frequency: req.body.frequency,
+            userID: userId,
+        }); // need to change these depending on params in stefans create method in habit model
         res.status(201).json(habit);
-        console.log(habit._id)
+        console.log(habit._id);
     } catch (err) {
         console.log(err)
         res.status(422).json({ err });
