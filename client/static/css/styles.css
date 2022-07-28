@@ -15,31 +15,39 @@ h1,h2,h3,h4,h5,h6{
 
 p{
     font-family: 'Bebas Neue', cursive;
-    color:#fff;
-    font-size: 1.5rem;
+    color:#888888;
+    font-size: 1rem;
+    letter-spacing: 2;
+}
+
+a {
+  color: white;
 }
 
 /** Headings**/
 
 .big-heading{
     font-family: 'Bebas Neue', cursive;
-    font-size: 3rem;
+    font-size: 4rem;
     line-height: 1.5;
+    margin-top: 70px;
 }
 .section-heading{
-    font-size: 3rem;
+    font-size: 1.5rem;
     line-height: 1.5;
+    text-align: left;
+    color: #000;
 }
 
-.container-fluid{
+/* .container-fluid{
     padding: 17% 20%;
-    }
+    } */
 
 /** Nav bar**/
 
-.navbar{
-padding: 0 0 4.5rem;
-}
+/* .navbar{
+padding: 0 0 1rem;
+} */
 .navbar-brand{
     font-family: 'Bebas Neue', cursive;
     font-size:3.5rem;
@@ -100,20 +108,21 @@ padding: 0 0 4.5rem;
     text-align: left;
     padding-bottom: 5% ;
 }
+
 #title .container-fluid{
-    padding: 3% 8% 7%;
+    padding: 2% 8% 1%;
 }
 /** Title Image**/
 
 .trackerGify{
-  
-    padding: 0% 2%;
     width: 100%;
-    height: auto;
-    transform: rotate(5deg);
+    height: 108%;
+    transform: rotate(0deg);
     position: relative;
     display: flex;
-    
+    border-radius:450px;
+    margin-top: 10px;
+    margin-left: 30px;   
 }
 /** Features section**/
 #features{
@@ -148,6 +157,15 @@ padding: 0 0 4.5rem;
     margin: 10px;
     text-align: center;
     }
+
+    
+.ctaP {
+  font-family: 'Bebas Neue', cursive;
+  color:#000;
+  font-size: 1.5rem;
+}
+
+
     /* btn2 */
     #btn2  {
         border-radius: 4px;
@@ -155,7 +173,7 @@ padding: 0 0 4.5rem;
         border: none;
         color: #fff;
         text-align: center;
-        font-size: 1.2rem;
+        font-size: 1.5rem;
         padding: 10px;
         width: 200px;
         transition: all 0.5s;
@@ -208,7 +226,20 @@ padding: 0 0 4.5rem;
 @media (max-width:1028px) {
 
 #title{
-text-align: center;}
+text-align: center;
+}
+
+.navbar-brand{ 
+  margin-left: 85px;
+}
+
+.big-heading{
+  margin-top: 20px;
+}
+
+.section-heading {
+  text-align: center;
+}
 
 .trackerGify{
 display: none;
