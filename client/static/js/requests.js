@@ -1,8 +1,9 @@
 let API_URL = `http://localhost:3000`;
+let username = localStorage.getItem("username");
 
 async function getAllHabits() {
   try {
-    const response = await fetch(`${API_URL}/username`);
+    const response = await fetch(`${API_URL}/habits/${username}`);
     const data = await response.json();
     return data;
   } catch (err) {
@@ -13,15 +14,28 @@ async function getAllHabits() {
 async function createHabit(e) {
   e.preventDefault();
   let habitName = document.getElementById("habitName").value;
+  let changedHabitName = habitName.replaceAll(" ", "%");
   let dailyOrWeekly = document.getElementById("frequency").value;
+  let daily;
+  let weekly;
+  if (dailyOrWeekly === "daily") {
+    daily = true;
+    weekly = false;
+  } else {
+    weekly = true;
+    daily = false;
+  }
   try {
     const options = {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ habit: habitName, frequency: dailyOrWeekly }),
+      body: JSON.stringify({
+        habit: changedHabitName,
+        frequency: { daily, weekly },
+      }),
     };
 
-    const response = await fetch(`${API_URL}/username/new`, options);
+    const response = await fetch(`${API_URL}/habits/${username}/new`, options);
     const { err } = await response.json();
     if (err) {
       throw Error(err);
@@ -36,7 +50,7 @@ async function createHabit(e) {
 async function deleteHabit(id) {
   try {
     const options = { method: "DELETE" };
-    await fetch(`${API_URL}/username/${id}`, options);
+    await fetch(`${API_URL}/habits/${username}/${id}`, options);
     window.location.reload();
   } catch (err) {
     console.warn(err);
@@ -45,7 +59,7 @@ async function deleteHabit(id) {
 
 async function getTrackingInfo(id) {
   try {
-    const response = await fetch(`${API_URL}/username/${id}`);
+    const response = await fetch(`${API_URL}/habits/${username}/${id}`);
     const data = await response.json();
     return data;
   } catch (err) {
