@@ -19,6 +19,10 @@ a {
   color: inherit;
 }
 
+.fa {
+  color: black;
+}
+
 .layout {
   display: flex;
   align-items: center;
