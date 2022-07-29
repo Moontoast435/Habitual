@@ -1,4 +1,4 @@
-let API_URL = `https://team-1-the-slackerz-habitual.herokuapp.com/`;
+let API_URL = `https://team-1-the-slackerz-habitual.herokuapp.com`;
 
 async function requestLogin(e) {
     e.preventDefault();

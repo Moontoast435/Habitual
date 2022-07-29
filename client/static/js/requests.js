@@ -1,10 +1,5 @@
-<<<<<<< HEAD
 "use strict"
-let API_URL2 = `https://team-1-the-slackerz-habitual.herokuapp.com/`;
-=======
-"use strict";
-let API_URL2 = `http://localhost:3000`;
->>>>>>> 0e595d5a6817355cea31e0a41bef13fcae11305a
+let API_URL2 = `https://team-1-the-slackerz-habitual.herokuapp.com`;
 let username = localStorage.getItem("username");
 
 async function getAllHabits() {
