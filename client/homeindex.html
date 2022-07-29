@@ -5,19 +5,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Habitual</title>
+    <script defer src="static/js/requests.js"></script>
+    <script defer src="static/js/homeindex.js"></script>
     <link rel="stylesheet" href="./static/css/homepagestyles.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
-    <script defer src="static/js/requests.js"></script>
-    <script defer src="static/js/layout.js"></script>
     <!--google fonts-->
     <link
       href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap"
       rel="stylesheet"
     />
     <!--font Awesome-->
-    <script src="https://kit.fontawesome.com/02eb9dedd0.js" crossorigin="anonymous"></script>
+    <script
+      src="https://kit.fontawesome.com/02eb9dedd0.js"
+      crossorigin="anonymous"
+    ></script>
 
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <!--google fonts-->
@@ -33,9 +36,13 @@
   </head>
   <body>
     <div class="layout">
-          <a class="header" href="#0"><i class="fa fa-bars"></i>
-            <div class="header-user"><i class="fas fa-user-circle icon"></i>Hello! <span id="userName"></span></div>
-          </a>
+      <a class="header" href="#0"
+        ><i class="fa fa-bars"></i>
+        <div class="header-user">
+          <i class="fas fa-user-circle icon"></i>Hello!
+          <span id="userName"></span>
+        </div>
+      </a>
       <div class="sidebar">
             <ul>
               <li> <a class="sidebar-list-item" href="#0"><i class="fa-solid fa-plus"></i><em>Create New Habit</em></a></li>
@@ -82,60 +89,47 @@
         </main>
       </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+      <main class="content">
+        <div class="main-header">
+          <div class="main-title">
+            <h1>Create Habit</h1>
+          </div>
+          <div class="main-form">
+            <form id="createHabitForm">
+              <div class="habits">
+                <select>
+                  <option id="habitTitle" value="0">Habit Title:</option>
+                  <option id="habitName" value="Reading">Reading</option>
+                  <option id="habitName" value="Cycling">Cycling</option>
+                  <option id="habitName" value="Walk">Walk</option>
+                  <option id="habitName" value="Yoga">Yoga</option>
+                </select>
+              </div>
+              <input
+                type="text"
+                id="customTitle"
+                onfocus="this.value=''"
+                value="Custom Your Title"
+              />
+              <div class="repetitions">
+                <select>
+                  <option id="habitRepetition" value="0">Frequency:</option>
+                  <option id="frequency" value="1">Daily</option>
+                  <option id="frequency" value="2">Weekly</option>
+                </select>
+              </div>
+              <a href="./userdashboardindex.html"
+                ><input
+                  type="submit"
+                  id="createPost"
+                  value="Habitualize!"
+                  class="button"
+              /></a>
+            </form>
+          </div>
+        </div>
+      </main>
+    </div>
 
     <!-- <div id="title">
       <!-- Nav Bar 
@@ -173,7 +167,7 @@
             <h2 class="formHeading">Browse activity</h2><br> 
         </div> -->
 
-        <!--opt 2-
+    <!--opt 2-
 
         <div class="container">
           <div class="left">
@@ -207,7 +201,5 @@
         <div id="greetingPost" class="col-lg-6">
             <h2 class="formHeading">Browse activity</h2><br> 
         </div> -->
-
-   
   </body>
 </html>

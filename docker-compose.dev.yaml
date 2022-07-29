@@ -16,11 +16,7 @@ services:
     ports: 
       - 3000:3000
     environment: 
-      - PGUSER=the-slackerz
-      - PGHOST=pgdb
-      - PGPASSWORD=slackingslackerz
-      - PGDATABASE=habitual
-      - PGPORT=5432
+      - DATABASE_URL=postgres://the-slackerz:slackingslackerz@pgdb:5432
       - DB_CONNECTION=mongodb://the-slackerz:slackingslackerz@mongodb:27017
       - DB_NAME=habitual
       - NODE_ENV=development
