@@ -23,6 +23,7 @@ async function register(req, res) {
 async function login(req, res) {
   //logging in - will need to add Auth
   try {
+    console.log(req.body)
     const user = await User.findByUsername(req.body.username);
     if (!user) {
       throw new Error("No user with this username");
