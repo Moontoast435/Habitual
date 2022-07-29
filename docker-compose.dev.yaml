@@ -16,7 +16,7 @@ services:
     ports: 
       - 3000:3000
     environment: 
-      - DATABASE_URL=postgres://the-slackerz:slackingslackerz@pgdb:5432
+      - DATABASE_URL=postgres://the-slackerz:slackingslackerz@pgdb:5432/habitual
       - DB_CONNECTION=mongodb://the-slackerz:slackingslackerz@mongodb:27017
       - DB_NAME=habitual
       - NODE_ENV=development

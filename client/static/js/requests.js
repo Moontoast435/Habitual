@@ -20,24 +20,28 @@ async function getAllHabits() {
 }
 
 async function createHabit() {
-  let habitName = document.getElementById("habitName").value;
+  
+  //let habitName = document.getElementById("habitName").value;
   let customName = document.getElementById("customTitle").value;
-  let changedHabitName;
-  if (habitName === "Habit Title:") {
+  let changedHabitName = customName.replaceAll(" ", "-");
+  /*if (habitName === "Habit Title:") {
     changedHabitName = customName.replaceAll(" ", "-");
   } else {
     changedHabitName = habitName.replaceAll(" ", "-");
-  }
-  let dailyOrWeekly = document.getElementById("frequency").value;
+  }*/
+  let dailyOrWeekly = document.getElementById("frequency-select");
+  let value = dailyOrWeekly.options[dailyOrWeekly.selectedIndex].text;
+  console.log(value);
   let daily;
   let weekly;
   let date;
-  if (dailyOrWeekly === "daily") {
+  if (value === "Daily") {
     daily = true;
     weekly = false;
     date = new Date();
     date.toLocaleDateString();
     date.toString().slice(0, 10);
+    console.log(date);
   } else {
     let currentDate = new Date();
     weekly = true;
@@ -74,6 +78,7 @@ async function createHabit() {
       throw Error(err);
     } else {
       window.location.reload();
+      
     }
   } catch (err) {
     console.warn(err);
@@ -111,7 +116,7 @@ async function updateDate(objectId, date) {
     };
 
     const response = await fetch(
-      `${API_URL2}/habits/${username}/${objectId}`,
+      `${API_URL2}/habits/${username}/${objectId}/complete`,
       options
     );
 
