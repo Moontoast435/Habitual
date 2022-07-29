@@ -1,21 +1,13 @@
 // Placeholder id's have been used, will be changed to reflect the actual HTML element ID's
-const createMenuBtn = document.getElementById("createMenuBtn");
-const createMenu = document.getElementById("createMenu");
 
 /* const greetingBox = document.getElementById("greeting");
 const greetingMessage = document.createElement("h2"); */
 
-const createHabitForm = document.getElementById("createHabitForm");
-console.log(createHabitForm);
-createHabitForm.addEventListener("submit", (e) => {
-  createHabit(e);
-  location.href = "/userdashboardindex.html";
-});
-
 const habitCollection = document.getElementById("greetingPost"); // will change depending on what id Aditi has set
 
-function displayAllHabits() {
-  const habits = getAllHabits();
+async function displayAllHabits() {
+  const habits = await getAllHabits();
+  console.log(habits);
   for (let i = 0; i < habits.length; i++) {
     const { name, frequency, _id, dates } = habits[i];
     let id = _id;
@@ -47,7 +39,11 @@ function displayAllHabits() {
       }
       completeBtn.addEventListener("click", () => {
         completeHabit(id, date, switchComplete(complete));
+
+        
       });
+      completeBtn.classList = 'complete-button';
+      habitFooter.appendChild(completeBtn);
     });
 
     let currentDate;
@@ -71,7 +67,13 @@ function displayAllHabits() {
       currentDate.toLocaleDateString();
       currentDate.toString().slice(0, 10);
     }
-    if (currentDate !== dates[-1]) {
+    let comparisonDate;
+    if (dates.length > 1) {
+       comparisonDate = dates[-1].date;
+    } else {
+       comparisonDate = dates[0].date;
+    }
+    if (currentDate !== comparisonDate) {
       updateDate(currentDate);
     }
 
@@ -92,12 +94,13 @@ function displayAllHabits() {
     endOfWeekBox.style.display = "block";
     endOfWeekInfo.textContent = shortEndOfWeek; */
 
-    let weekComplete = document.createElement("button");
+    /*let weekComplete = document.createElement("button");
     weekComplete.classList = "week-complete-button";
+    habitFooter.appendChild(weekComplete);
 
     weekComplete.addEventListener("click", () => {
-      updateWeeklyTracking(name, numberOfWeeks);
-    });
+      completeHabit(name, numberOfWeeks); 
+    }); */
     // } else if (frequency.daily === true) {
     //   let currentDate = new Date();
     //   currentDate.toLocaleDateString();
