@@ -5,10 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Habitual</title>
+    <script defer src="static/js/auth.js"></script>
     <script defer src="static/js/requests.js"></script>
     <script defer src="static/js/layout.js"></script>
     
     <link rel="stylesheet" href="./static/css/homepagestyles.css" />
+    <link rel="stylesheet" href="./static/css/userdashboardstyles.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <!--google fonts-->
@@ -34,7 +36,7 @@
   <body>
     <div class="layout">
           <a class="header" href="#0"><i class="fa fa-bars"></i>
-            <div class="header-user"><i class="fas fa-user-circle icon"></i>Hello! <span id="userName"></span></div>
+            <div class="header-user"><i class="fas fa-user-circle icon"></i>Logout! <span id="userName"></span></div>
           </a>
       <div class="sidebar">
             <ul>
@@ -48,9 +50,12 @@
           <main class="content">
 
              <!--backend-->
-    <div id="greetingPost" class="col-lg-6">
-      <h2 class="formHeading">Browse activity</h2>
-      <br />
+             <div class="heading">
+               <h2 class="formHeading">Browse activity</h2>
+             </div>
+             <br />
+    <div id="greetingPost" class="">
+      
     </div>
 <!-- <table>
   <tr>
@@ -76,13 +81,9 @@
   </tr>
 </table> -->
         </main>  
-      </div>
+     
 
-      </main>
-    </div>
-    <div id="greetingPost" class="col-lg-6">
-      <h2 class="formHeading">Browse activity</h2>
-      <br />
-    </div>
+      
+
   </body>
 </html>
