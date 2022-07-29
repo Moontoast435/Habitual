@@ -9,11 +9,11 @@
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js",
-    "seedDev": "node dbConfig/pg/seedDev.js && node dbConfig/mongo/seedDev.js",
+    "pgSeedDev": "node dbConfig/pg/seedDev.js",
+    "mongoSeedDev": "node dbConfig/mongo/seedDev.js",
     "test": "jest --setupFiles ./tests/integration/config.js --watchAll --detectOpenHandles --runInBand --verbose",
     "unitTests": "jest --testPathPattern=/unit/ --watchAll --verbose",
-    "coverage": "jest --testPathPattern=/unit/ --coverage",
-    "browserify": "requests.js -o bundle.js"
+    "coverage": "jest --testPathPattern=/unit/ --coverage"
   },
   "author": "the-slackerz",
   "license": "ISC",

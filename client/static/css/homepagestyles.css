@@ -315,16 +315,14 @@ tr:nth-child(even) {
 
 /*backend*
 
-h2 {
- text-align: center;
- color: #fff;
 }
 
+
+
+/*backend
 #greetingPost {
-  display: inline;
-  flex-direction: row;
-  border: none;
-  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
 }
 .habit-container {
   padding: 0 50px;
@@ -345,10 +343,26 @@ h2 {
 } 
 */
 
-/** media query*
-@media screen and (max-width: 1028px) {
+/** media query**/
+@media (max-width: 1028px) {
   #title {
     text-align: center;
   }
 
-} */
+  #greetingPost {
+    text-align: center;
+  }
+  /* form opt-3*/
+  /* Container holding the image and the text */
+  .container {
+    position: relative;
+    text-align: center;
+    color: white;
+    font-weight: 100;
+  }
+
+#greetingPost {
+  text-align: center;
+}
+
+}
