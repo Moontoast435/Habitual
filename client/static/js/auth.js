@@ -1,4 +1,4 @@
-let API_URL = `http://localhost:3000`;
+let API_URL = `https://team-1-the-slackerz-habitual.herokuapp.com/`;
 
 const loginForm = document.getElementById("loginForm");
 

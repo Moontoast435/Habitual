@@ -1,5 +1,5 @@
 "use strict"
-let API_URL2 = `http://localhost:3000`;
+let API_URL2 = `https://team-1-the-slackerz-habitual.herokuapp.com/`;
 let username = localStorage.getItem("username");
 
 async function getAllHabits() {
