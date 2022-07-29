@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Habitual</title>
+    <script defer src="static/js/auth.js"></script>
     <script defer src="static/js/requests.js"></script>
     <script defer src="static/js/homeindex.js"></script>
     <link rel="stylesheet" href="./static/css/homepagestyles.css" />
@@ -39,14 +40,14 @@
       <a class="header" href="#0"
         ><i class="fa fa-bars"></i>
         <div class="header-user">
-          <i class="fas fa-user-circle icon"></i>Hello!
+          <i class="fas fa-user-circle icon"></i>Logout!
           <span id="userName"></span>
         </div>
       </a>
       <div class="sidebar">
             <ul>
               <li> <a class="sidebar-list-item" href="#0"><i class="fa-solid fa-plus"></i><em>Create New Habit</em></a></li>
-              <li> <a class="sidebar-list-item" href="/client/userdashboardindex.html"> <i class="fas fa-home icon"></i><em>Dashboard</em></a></li>
+              <li> <a class="sidebar-list-item" href="userdashboardindex.html"> <i class="fas fa-home icon"></i><em>Dashboard</em></a></li>
               <li> <a class="sidebar-list-item" href="#0"> <i class="fas fa-comments icon"></i><em>Feedback</em></a></li>
               <li> <a class="sidebar-list-item" href="#0"> <i class="fas fa-lightbulb icon"></i><em>Suggestions</em></a>
               </li>
@@ -60,26 +61,23 @@
              </div>
             <div class="main-form">
               <form  id="createHabitForm">
-                <div class="habits">
-                  <select>
+                <!--<div class="habits">
+                  <select id="selectForm">
                     <option id="habitTitle" value="0">Habit Title:</option>
                     <option id="habitName" value="Reading">Reading</option>
                     <option id="habitName" value="Cycling">Cycling</option>
                     <option id="habitName" value="Walk">Walk</option>
                     <option id="habitName" value="Yoga">Yoga</option>
                   </select>
-                </div>
+                </div>-->
                       <input type="text" id="customTitle" onfocus="this.value=''" value="Custom Your Title">
                   <div class="repetitions">
-                    <select>
+                    <select id="frequency-select">
                       <option id="habitRepetition" value="0">Frequency:</option>
                       <option id="frequency" value="1">Daily</option>
                       <option id="frequency" value="2">Weekly</option>
                     </select>
-  
-<!--backend-->
-
-                  <button type="submit" id="createPost" class="button" value="Habitualize!"><a href="/client/userdashboardindex.html">Habitualize! </a></button>
+                  <button type="submit" id="createPost" class="button" value="Habitualize!"><a href="userdashboardindex.html">Habitualize! </a></button>
                   
               </form>
             </div>
@@ -89,47 +87,7 @@
         </main>
       </div>
 
-      <main class="content">
-        <div class="main-header">
-          <div class="main-title">
-            <h1>Create Habit</h1>
-          </div>
-          <div class="main-form">
-            <form id="createHabitForm">
-              <div class="habits">
-                <select>
-                  <option id="habitTitle" value="0">Habit Title:</option>
-                  <option id="habitName" value="Reading">Reading</option>
-                  <option id="habitName" value="Cycling">Cycling</option>
-                  <option id="habitName" value="Walk">Walk</option>
-                  <option id="habitName" value="Yoga">Yoga</option>
-                </select>
-              </div>
-              <input
-                type="text"
-                id="customTitle"
-                onfocus="this.value=''"
-                value="Custom Your Title"
-              />
-              <div class="repetitions">
-                <select>
-                  <option id="habitRepetition" value="0">Frequency:</option>
-                  <option id="frequency" value="1">Daily</option>
-                  <option id="frequency" value="2">Weekly</option>
-                </select>
-              </div>
-              <a href="./userdashboardindex.html"
-                ><input
-                  type="submit"
-                  id="createPost"
-                  value="Habitualize!"
-                  class="button"
-              /></a>
-            </form>
-          </div>
-        </div>
-      </main>
-    </div>
+    
 
     <!-- <div id="title">
       <!-- Nav Bar 
