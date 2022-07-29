@@ -33,6 +33,7 @@ async function showHabit(req, res) {
 async function addNewHabit(req, res) {
     // create route - adds a new habit a user wants to track
     try {
+        console.log(req.body)
         const user = await User.findByUsername(req.params.username);
         const userId = user.id;
         const habit = await Habit.create({
