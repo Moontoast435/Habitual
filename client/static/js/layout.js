@@ -7,7 +7,7 @@ const habitCollection = document.getElementById("greetingPost"); // will change 
 
 async function displayAllHabits() {
   const habits = await getAllHabits();
-  console.log(habits);
+  
   for (let i = 0; i < habits.length; i++) {
     const { name, frequency, _id, dates } = habits[i];
     let id = _id;
@@ -29,16 +29,36 @@ async function displayAllHabits() {
     dates.forEach((entry) => {
       const { date, complete } = entry;
       let dateDisplay = document.createElement("div");
+      dateDisplay.classList = "date-display";
       let dateInfo = document.createElement("p");
       dateInfo.textContent = date;
       dateDisplay.appendChild(dateInfo);
       habitBody.appendChild(dateDisplay);
       let completeBtn = document.createElement("button");
+      
+      if (complete) {
+        completeBtn.style.backgroundColor = 'purple';
+        completeBtn.style.color = 'white';
+        completeBtn.textContent = 'Complete!'
+      } else {
+        completeBtn.style.backgroundColor = 'transparent';
+        completeBtn.style.color = 'black';
+        completeBtn.textContent = 'Incomplete';
+      } 
       function switchComplete(complete) {
         return !complete;
       }
-      completeBtn.addEventListener("click", () => {
+      completeBtn.addEventListener("click",  () => {
+
+      
         completeHabit(id, date, switchComplete(complete));
+        const completeBtnBackgroundColor = completeBtn.style.backgroundColor;
+       if (completeBtnBackgroundColor === 'transparent') {
+        completeBtn.style.backgroundColor = 'purple'
+        
+       } else {
+        completeBtn.style.backgroundColor = 'transparent';
+       }
 
         
       });
