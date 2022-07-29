@@ -41,6 +41,7 @@ class User {
                 let user = new User(userData.rows[0]);
                 resolve(user);
             } catch (err) {
+                console.log(err)
                 reject(`User not found, username is not in database: ${err}`);
             }
         });
