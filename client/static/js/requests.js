@@ -1,20 +1,33 @@
+"use strict"
 let API_URL2 = `http://localhost:3000`;
 let username = localStorage.getItem("username");
 
 async function getAllHabits() {
   try {
-    const response = await fetch(`${API_URL2}/habits/${username}`);
+    const options = {
+      headers: new Headers({ Authorization: localStorage.getItem("token") }),
+    };
+    const response = await fetch(`${API_URL2}/habits/${username}`, options);
     const data = await response.json();
+    if (data.err) {
+      console.warn(data.err);
+      logout();
+    }
     return data;
   } catch (err) {
     console.warn(err);
   }
 }
 
-async function createHabit(e) {
-  e.preventDefault();
+async function createHabit() {
   let habitName = document.getElementById("habitName").value;
-  let changedHabitName = habitName.replaceAll(" ", "-");
+  let customName = document.getElementById("customTitle").value;
+  let changedHabitName;
+  if (habitName === "Habit Title:") {
+    changedHabitName = customName.replaceAll(" ", "-");
+  } else {
+    changedHabitName = habitName.replaceAll(" ", "-");
+  }
   let dailyOrWeekly = document.getElementById("frequency").value;
   let daily;
   let weekly;
@@ -44,7 +57,10 @@ async function createHabit(e) {
   try {
     const options = {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+       "Authorization": localStorage.getItem("token"),
+      },
       body: JSON.stringify({
         habit: changedHabitName,
         frequency: { daily, weekly },
@@ -90,12 +106,12 @@ async function updateDate(objectId, date) {
   try {
     const options = {
       method: "PATCH",
-      headers: { "Content-Type": "application/json" },
+      headers: { "Content-Type": "application/json","Authorization": localStorage.getItem("token") },
       body: JSON.stringify({ date, complete: false }),
     };
 
     const response = await fetch(
-      `${API_URL}/habits/${username}/${objectId}`,
+      `${API_URL2}/habits/${username}/${objectId}`,
       options
     );
 
@@ -115,15 +131,16 @@ async function completeHabit(objectId, date, completeValue) {
   try {
     const options = {
       method: "PATCH",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ complete: completeValue, date }),
+      headers: {
+        "Content-Type": "application/json",
+       "Authorization": localStorage.getItem("token"),
+      },
+      body: JSON.stringify({
+        date, complete: completeValue
+      }),
     };
 
-    const response = await fetch(
-      `${API_URL}/habits/${username}/${objectId}/complete`,
-      options
-    );
-
+    const response = await fetch(`${API_URL2}/habits/${username}/${objectId}/complete`, options);
     const { err } = await response.json();
     if (err) {
       throw Error(err);
