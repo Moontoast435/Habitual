@@ -1,0 +1,35 @@
+.formHeading {
+  font-size: 1.5rem;
+}
+
+#greetingPost {
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+/* backend css
+
+.habit-container {
+ display: flex;
+}
+
+.habit-header {
+
+}
+
+.habit-name {
+
+}
+
+.habit-body {
+
+}
+
+.week-complete-button {
+
+}
+ .habit-footer {
+
+ } */
