@@ -37,6 +37,7 @@ class User {
                 let user = new User(userData.rows[0]);
                 resolve(user);
             } catch (err) {
+                console.log(err)
                 reject(`User not found, username is not in database: ${err}`);
             }
         })
@@ -46,8 +47,12 @@ class User {
         return new Promise(async (resolve, reject) => {
             try {
                 const destruction = await pgdb.query(`DELETE FROM users WHERE username = $1 RETURNING username;`, [ this.username ]);
+<<<<<<< HEAD
+                resolve(`This user has now been deleted: ${destruction.username}. Bye bye!👋`);
+=======
                 const username = destruction.rows[0].username
                 resolve(`This user has now been deleted: ${username}. Bye bye!👋`);
+>>>>>>> main
             } catch (err) {
                 reject(`This user could not be deleted.`)
             }

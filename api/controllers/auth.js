@@ -19,11 +19,28 @@ async function register (req, res) {   // creating/registering a new user - will
     }
 }
 
+<<<<<<< HEAD
+async function login(req, res) {
+  //logging in - will need to add Auth
+  try {
+    console.log(req.body)
+    const user = await User.findByUsername(req.body.username);
+    if (!user) {
+      throw new Error("No user with this username");
+    }
+    const authed = await bcrypt.compare(req.body.password, user.passwordDigest);
+    if (authed) {
+      const payload = { username: user.username };
+      const sendToken = (err, token) => {
+        if (err) {
+          throw new Error("Error when generating token");
+=======
 async function login (req, res) {   //logging in - will need to add Auth
     try {
         const user = await User.findByUsername(req.body.username)
         if(!user) {
             throw new Error('No user with this username')
+>>>>>>> main
         }
         const authed = await bcrypt.compare(req.body.password, user.passwordDigest)
         if(authed) {

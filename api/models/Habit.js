@@ -47,29 +47,47 @@ const habitSchema = new mongoose.Schema({
     userID: Number,
 });
 
+<<<<<<< HEAD
+habitSchema.statics.getUsersHabits = function (userID) {
+=======
 habitSchema.statics.getUsersHabits = function (username) {
+>>>>>>> main
     return new Promise(async function (resolve, reject) {
         try {
             const user = await User.findByUsername(username);
             const habits = await this.find({ userID: user.id }).toArray();
             resolve(habits);
+<<<<<<< HEAD
+        } catch (err) {
+            console.log(err);
+=======
         } catch (error) {
+>>>>>>> main
             reject("No habits found");
-        }
+        };
     });
-};
+}
 
+<<<<<<< HEAD
+habitSchema.statics.getSpecificHabit = function (objectId) {
+    return new Promise(async function (resolve, reject) {
+        try {
+            const habitData = await Habit.find({_id: objectId});
+            const habit = new Habit(habitData[0]);
+=======
 habitSchema.statics.getSpecificHabit = function (username, id) {
     return new Promise(async function (resolve, reject) {
         try {
             const user = await User.findByUsername(username);
             const habit = await this.where("userID").equals(user.id).where("id").equals(id);
+>>>>>>> main
             resolve(habit);
         } catch (error) {
-            reject("No habit found");
+            console.log(error);
+            reject("Sorry! No habit found!");
         }
-    });
-};
+    })
+};    
 
 habitSchema.statics.destroy = function (habitData) {
     return new Promise(async function (resolve, reject) {
